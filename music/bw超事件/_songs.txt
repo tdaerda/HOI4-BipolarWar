@@ -1,0 +1,27 @@
+
+music_station = "bw_music"
+
+music = {
+	song = "超事件：起来战斗"
+	chance = {
+		modifier = {
+			factor = 0
+		}
+	}
+}
+music = {
+	song = "超事件：南非国歌"
+	chance = {
+		modifier = {
+			factor = 0
+		}
+	}
+}
+music = {
+	song = "超事件：齐格纳维森"
+	chance = {
+		modifier = {
+			factor = 0
+		}
+	}
+}

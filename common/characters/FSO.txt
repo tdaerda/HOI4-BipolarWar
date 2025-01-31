@@ -1,0 +1,17 @@
+characters={
+	FSO_WenHao = {
+		name = FSO_WenHao
+		portraits={
+			civilian={
+				large="gfx/leaders/Gregor Strasser.dds"
+			}
+		}
+		country_leader={
+			ideology=JiaSuZHuYi_c
+			traits={ dictator }
+			expire="9999.1.1.1"
+			id=-1
+		}
+	}
+
+}

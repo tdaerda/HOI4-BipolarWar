@@ -1,0 +1,428 @@
+focus_tree = {
+	id = FocusTree_FRA
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FRA
+		}
+	}
+	default = no
+	focus = {
+		id = 股市问题
+		icon = GFX_goal_generic_trade
+		cost = 5.00
+		x = 3
+		y = 1
+
+	}
+	focus = {
+		id = 改组左翼联合
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 1.40
+		x = 12
+		y = 0
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = 调整股市
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 1.00
+		prerequisite = {
+			focus = 股市问题
+		}
+		x = 2
+		y = 2
+
+	}
+	focus = {
+		id = 参加5月份选举
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 21.00
+		prerequisite = {
+			focus = 改组左翼联合
+		}
+		x = 12
+		y = 1
+		completion_reward = {
+			FRA = {
+				country_event = {
+					id = bw.13
+					days = 0
+					random = 0
+				}
+			}
+		}
+	}
+	focus = {
+		id = 将银行民主化
+		icon = GFX_goal_unknown
+		cost = 3.00
+		prerequisite = {
+			focus = 股市问题
+		}
+		prerequisite = {
+			focus = 参加5月份选举
+		}
+		x = 5
+		y = 2
+
+	}
+	focus = {
+		id = 建立银行委员会
+		icon = GFX_goal_unknown
+		cost = 4.00
+		prerequisite = {
+			focus = 将银行民主化
+		}
+		x = 5
+		y = 3
+
+	}
+	focus = {
+		id = 推广艺术
+		icon = GFX_goal_generic_consumer_goods
+		cost = 4.00
+		prerequisite = {
+			focus = 参加5月份选举
+		}
+		x = 8
+		y = 2
+
+	}
+	focus = {
+		id = 阿尔托？
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = 推广艺术
+		}
+		x = 7
+		y = 4
+
+	}
+	focus = {
+		id = 建立公立学校
+		icon = GFX_focus_research
+		cost = 5.00
+		prerequisite = {
+			focus = 参加5月份选举
+		}
+		x = 10
+		y = 3
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = 批准许妇女选举权
+		icon = GFX_goal_generic_build_tank
+		cost = 3.00
+		prerequisite = {
+			focus = 参加5月份选举
+		}
+		x = 11
+		y = 2
+
+	}
+	focus = {
+		id = 签署马提尼翁协定
+		icon = GFX_goal_generic_production
+		cost = 3.00
+		prerequisite = {
+			focus = 参加5月份选举
+		}
+		x = 13
+		y = 2
+
+	}
+	focus = {
+		id = 平等法案
+		icon = GFX_goal_generic_national_unity
+		cost = 4.00
+		prerequisite = {
+			focus = 批准许妇女选举权
+		}
+		prerequisite = {
+			focus = 签署马提尼翁协定
+		}
+		prerequisite = {
+			focus = 建立公立学校
+		}
+		x = 12
+		y = 4
+
+	}
+	focus = {
+		id = 向右派妥协
+		icon = GFX_goal_generic_alliance
+		cost = 6.00
+		prerequisite = {
+			focus = 平等法案
+		}
+		mutually_exclusive = {
+			focus = 允许共产党游行
+		}
+		x = 9
+		y = 5
+
+	}
+	focus = {
+		id = 先锋国万岁！！！
+		icon = GFX_goal_unknown
+		cost = 0.00
+		prerequisite = {
+			focus = 向右派妥协
+		}
+		prerequisite = {
+			focus = 阿尔托？
+		}
+		x = 3
+		y = 6
+
+	}
+	focus = {
+		id = 任命贝当
+		icon = GFX_goal_generic_defence
+		cost = 5.00
+		prerequisite = {
+			focus = 向右派妥协
+		}
+		x = 8
+		y = 6
+
+	}
+	focus = {
+		id = 任命皮埃尔
+		icon = GFX_goal_generic_major_alliance
+		cost = 5.00
+		prerequisite = {
+			focus = 向右派妥协
+		}
+		x = 10
+		y = 6
+
+	}
+	focus = {
+		id = 允许共产党游行
+		icon = GFX_goal_generic_demand_territory
+		cost = 3.00
+		prerequisite = {
+			focus = 平等法案
+		}
+		mutually_exclusive = {
+			focus = 向右派妥协
+		}
+		x = 15
+		y = 5
+
+	}
+	focus = {
+		id = 布鲁姆-维奥莱特提案
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10
+		prerequisite = {
+			focus = 参加5月份选举
+		}
+		x = 22
+		y = 2
+		completion_reward = {
+			add_state_core = 459
+			add_state_core = 460
+			add_state_core = 513
+			if = {
+				limit = {
+					country_exists = ALG
+				}
+				annex_country = { target = ALG }
+			}
+			FRA_right_wing_riot_effect = yes
+		}
+	}
+	focus = {
+		id = 允许殖民地自治
+		icon = GFX_goal_generic_position_armies
+		cost = 6.00
+		prerequisite = {
+			focus = 布鲁姆-维奥莱特提案
+		}
+		mutually_exclusive = {
+			focus = 稳固殖民地
+		}
+		x = 20
+		y = 5
+
+	}
+	focus = {
+		id = 解放殖民地
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 10.00
+		prerequisite = {
+			focus = 允许殖民地自治
+		}
+		mutually_exclusive = {
+			focus = 采取英式模式
+		}
+		x = 19
+		y = 6
+
+	}
+	focus = {
+		id = 采取英式模式
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 3.00
+		prerequisite = {
+			focus = 允许殖民地自治
+		}
+		mutually_exclusive = {
+			focus = 解放殖民地
+		}
+		x = 21
+		y = 6
+
+	}
+	focus = {
+		id = 稳固殖民地
+		icon = GFX_goal_generic_territory_or_war
+		cost = 6.00
+		prerequisite = {
+			focus = 布鲁姆-维奥莱特提案
+		}
+		mutually_exclusive = {
+			focus = 允许殖民地自治
+		}
+		x = 24
+		y = 5
+
+	}
+	focus = {
+		id = 稳固法属西非
+		icon = GFX_goal_anschluss
+		cost = 5.00
+		prerequisite = {
+			focus = 稳固殖民地
+		}
+		x = 24
+		y = 6
+
+	}
+	focus = {
+		id = 索取西属非洲
+		icon = GFX_goal_generic_political_pressure
+		cost = 0.00
+		prerequisite = {
+			focus = 稳固法属西非
+		}
+		x = 24
+		y = 7
+
+	}
+	focus = {
+		id = 要求暹罗臣服
+		icon = GFX_goal_generic_major_war
+		cost = 5.00
+		prerequisite = {
+			focus = 稳固殖民地
+		}
+		x = 27
+		y = 6
+
+	}
+	focus = {
+		id = 逐步整合法属印支
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 稳固殖民地
+		}
+		x = 30
+		y = 6
+
+	}
+	focus = {
+		id = 整合法属越南
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 逐步整合法属印支
+		}
+		x = 29
+		y = 7
+
+	}
+	focus = {
+		id = 整合法属柬埔寨
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 逐步整合法属印支
+		}
+		x = 32
+		y = 7
+
+	}
+	focus = {
+		id = 整合法属老外
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 逐步整合法属印支
+		}
+		x = 35
+		y = 7
+
+	}
+	focus = {
+		id = 共同富裕
+		icon = GFX_goal_generic_improve_relations
+		cost = 11.00
+		prerequisite = {
+			focus = 解放殖民地
+		}
+		x = 19
+		y = 7
+
+	}
+	focus = {
+		id = 整合法属缅甸
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 逐步整合法属印支
+		}
+		x = 38
+		y = 7
+
+	}
+	focus = {
+		id = 对RN行动睁一只眼闭一只眼
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 5.00
+		prerequisite = {
+			focus = 向右派妥协
+		}
+		x = 9
+		y = 7
+
+	}
+	focus = {
+		id = 辞职
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 5.00
+		prerequisite = {
+			focus = 对RN行动睁一只眼闭一只眼
+		}
+		prerequisite = {
+			focus = 任命贝当
+		}
+		prerequisite = {
+			focus = 任命皮埃尔
+		}
+		x = 9
+		y = 8
+
+	}
+}

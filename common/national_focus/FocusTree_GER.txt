@@ -1,0 +1,1445 @@
+focus_tree = {
+	id = FocusTree_GER
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GER
+		}
+	}
+
+	continuous_focus_position = { x = 50 y = 750 }
+
+	default = no
+
+#内战国策
+
+	focus = {
+		id = GER_FaXiSiZHiJian #法西斯之剑
+		icon = GFX_FaXiSiZHiJian
+		cost = 0
+		x = 6
+		y = 0
+		bypass = {
+			always = yes
+		}
+		completion_reward = {
+#			custom_effect_tooltip = 开始内战
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+
+	focus = {
+		id = GER_DongYuanCHongFengDui #动员冲锋队
+		icon = GFX_DongYuanCHongFengDui
+		cost = 0.50
+		prerequisite = {
+			focus = GER_FaXiSiZHiJian #法西斯之剑
+		}
+		x = 5
+		y = 1
+		completion_reward = {
+			custom_effect_tooltip = GER_DongYuanCHongFengDui_tt
+			hidden_effect = {
+				load_oob = "GER_DongYuanCHongFengDui"
+			}
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_DongYuanDangWeiJun #动员党卫军
+		icon = GFX_DongYuanDangWeiJun
+		cost = 0.50
+		prerequisite = {
+			focus = GER_FaXiSiZHiJian #法西斯之剑
+		}
+		x = 7
+		y = 1
+		completion_reward = {
+			custom_effect_tooltip = 生成一些党卫军部队
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_TuanJieYiZHi #团结一致
+		icon = GFX_TuanJieYiZHi
+		cost = 5.00
+		prerequisite = {
+			focus = GER_DongYuanCHongFengDui #动员冲锋队
+		}
+		x = 4
+		y = 2
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_SiTeLaSePai_NengDaZHangJiuXing #斯特拉瑟派？只要能打仗就行
+		icon = GFX_SiTeLaSePai_NengDaZHangJiuXing
+		cost = 5.00
+		prerequisite = {
+			focus = GER_TuanJieYiZHi #团结一致
+		}
+		x = 2
+		y = 3
+		completion_reward = {
+			add_manpower = 2000
+			add_stability = -0.05
+			add_popularity = {
+				ideology = SiTeLaSeZHuYi
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = GuiZuBaoSHouZHuYi
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = GER_ZHaoMuMinBing #招募民兵
+		icon = GFX_ZHaoMuMinBing
+		cost = 5.00
+		prerequisite = {
+			focus = GER_TuanJieYiZHi #团结一致
+		}
+		x = 4
+		y = 3
+		completion_reward = {
+#			custom_effect_tooltip = 允许在慕尼黑招募民兵
+			unlock_decision_tooltip = GER_ZHaoMuMinBing
+			hidden_effect = {
+				load_oob = "GER_MinBing"
+#				set_variable = { GER_ZHaoMuMinBing = 100 }
+			}
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_ZiYouJiuTuan #自由军团
+		icon = GFX_ZiYouJunTuan
+		cost = 5.00
+		prerequisite = {
+			focus = GER_ZHaoMuMinBing #招募民兵
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+			unlock_decision_tooltip = GER_GuoYouHuaZiYouJiuTuan
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+
+	}
+	focus = {
+		id = GER_ZHengHeZHanLingQv #整合占领区
+		icon = GFX_ZHengHeZHanLingQv
+		cost = 5.00
+		prerequisite = {
+			focus = GER_DongYuanCHongFengDui #动员冲锋队
+		}
+		prerequisite = {
+			focus = GER_DongYuanDangWeiJun #动员党卫军
+		}
+		x = 6
+		y = 2
+		completion_reward = {
+			unlock_decision_tooltip = GER_ZHengHeBaDengFuTengBao
+			unlock_decision_tooltip = GER_ZHengHeLaiYinLan
+			unlock_decision_tooltip = GER_ZHengHeBuLaiMeiJiZHoBian
+			unlock_decision_tooltip = GER_ZHengHeXILiXiYa
+			unlock_decision_tooltip = GER_ZHengHeSaKeSen
+			unlock_decision_tooltip = GER_ZHengHeTuLinGen
+			unlock_decision_tooltip = GER_ZHengHeBoLanDengBao
+			unlock_decision_tooltip = GER_ZHengHeBoLanDengBaoZHoBian
+			unlock_decision_tooltip = GER_ZHengHeMeiKeLuenBaoJiZHoBian
+			unlock_decision_tooltip = GER_ZHengHeHanNuoWei
+			unlock_decision_tooltip = GER_ZHengHeWeiSiTeFaLiYa
+			unlock_decision_tooltip = GER_ZHengHeHeiSen
+			unlock_decision_tooltip = GER_ZHengHeHeErSiTaiYin
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_DuoNaoFangXian #多瑙防线
+		icon = GFX_DuoNaoFangXian
+		cost = 5.00
+		prerequisite = {
+			focus = GER_ZHengHeZHanLingQv #整合占领区
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+			982 = {
+				add_building_construction = {
+					type = bunker
+					province = 3679
+					level = 2
+					instant_build = yes
+				}
+			}
+			50 = {
+				add_building_construction = {
+					type = bunker
+					province = 6934
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3690
+					level = 2
+					instant_build = yes
+				}
+			}
+			52 = {
+				add_building_construction = {
+					type = bunker
+					province = 708
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 3705
+					level = 2
+					instant_build = yes
+				}
+			}
+			53 = {
+				add_building_construction = {
+					type = bunker
+					province = 9515
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					province = 9681
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_WeiXiXingDong #威悉行动
+		icon = GFX_WeiXiXingDong
+		cost = 5.00
+		prerequisite = {
+			focus = GER_DongYuanDangWeiJun #动员党卫军
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+		x = 8
+		y = 2
+
+	}
+# # #外交分支
+	focus = {
+		id = GER_JianLinSHiWaiJiaoBuJiXvanCHuanBu #建立临时外交部及宣传部
+		icon = GFX_JianLinSHiWaiJiaoBuJiXvanCHuanBu
+		cost = 5.00
+		prerequisite = {
+			focus = GER_FaXiSiZHiJian #法西斯之剑
+		}
+		x = 11
+		y = 1
+		completion_reward = {
+			add_political_power = 10
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_YvYingFaTanPan #与英法谈判
+		icon = GFX_YvYingFaTanPan
+		cost = 5.00
+		prerequisite = {
+			focus = GER_JianLinSHiWaiJiaoBuJiXvanCHuanBu #建立临时外交部及宣传部
+		}
+		x = 11
+		y = 2
+		completion_reward = {
+			add_political_power = 10
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+#	focus = {
+#		id = 签署日内瓦条约
+#		icon = GFX_QianSHuRiNeiWaTiaoYue
+#		cost = 0.50
+#		prerequisite = {
+#			focus = 与英法谈判
+#		}
+#		x = 12
+#		y = 2
+#		bypass = {
+#			always = yes
+#		}
+#		completion_reward = {
+#			add_ideas = bw_GER_FaErSaiTiXi
+#			add_ideas = bw_GER_RiNeiWaTiaoYue_1
+#			remove_ideas = bw_GER_YingFaFanDui
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+#		}
+#	}
+	focus = {
+		id = 以萨尔换取支援
+		icon = GFX_YiSaErHuanQvYuanZHu
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YvYingFaTanPan #与英法谈判
+		}
+		x = 11
+		y = 3
+		completion_reward = {
+			FRA = {
+				set_state_owner = 970
+			}
+#			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
+		}
+	}
+	focus = {
+		id = GER_XvanCHuanJvDaDeHongSeWeiXie #宣传巨大的红色威胁
+		icon = GFX_XvanCHuanJvDaDeHongSeWeiXie
+		cost = 5.00
+		prerequisite = {
+			focus = 以萨尔换取支援
+		}
+		x = 11
+		y = 4
+		completion_reward = {
+			add_ideas = bw_GER_JvDaDeHongSeWeiXie
+		}
+	}
+# # #军事分支
+	focus = {
+		id = GER_GuDongDiFangJiangLing #鼓动敌方将领
+		icon = GFX_GuDongDiFangJiangLing
+		cost = 5.00
+		prerequisite = {
+			focus = GER_FaXiSiZHiJian #法西斯之剑
+		}
+		x = 13
+		y = 1
+		completion_reward = {
+			GSR = {
+				news_event = {
+					id = bw_GER.3
+					days = 1
+					random = 0
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_CHongZuJunGuoPaiGuoFangJun #重组军国派国防军
+		icon = GFX_CHongZuJunGuoPaiGuoFangJun
+		cost = 5.00
+		prerequisite = {
+			focus = GER_GuDongDiFangJiangLing #鼓动敌方将领
+		}
+		x = 13
+		y = 2
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = bw_GER_JunGuoPaiGuoFangJunTaoKaoWoMen
+				add_idea = bw_GER_GuoFangJun 
+			}
+		}
+	}
+	focus = {
+		id = GER_XvanCHuanSHengCuenKingJianLuen #宣传生存空间论
+		icon = GFX_CHongZuJunGuoPaiGuoFangJun
+		cost = 5.00
+		prerequisite = {
+			focus = GER_CHongZuJunGuoPaiGuoFangJun #重组军国派国防军
+		}
+		x = 13
+		y = 3
+		completion_reward = {
+			add_ideas = bw_GER_SHengCunKongJian
+		}
+	}
+	focus = {
+		id = GER_JiaRuRiErManMinZuZHuYi #加入日耳曼民族主义
+		icon = GFX_CHongZuJunGuoPaiGuoFangJun
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XvanCHuanSHengCuenKingJianLuen #宣传生存空间论
+		}
+		x = 13
+		y = 4
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = bw_GER_SHengCunKongJian
+				add_idea = bw_GER_DeYiZHiMinZuDeSHengCunKongJian
+			}
+		}
+	}
+	focus = {
+		id = 反布尔什维克志愿军
+		icon = GFX_FanBuErSHiWeiKeZHiYuanJun
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XvanCHuanJvDaDeHongSeWeiXie #宣传巨大的红色威胁
+		}
+		prerequisite = {
+			focus = GER_JiaRuRiErManMinZuZHuYi #加入日耳曼民族主义
+		}
+		x = 12
+		y = 5
+		completion_reward = {
+			hidden_effect = {
+				load_oob = "GER_FanBuErSHiWeiKeZHiYuanJun_1"
+			}
+			if = {
+				every_other_country = {
+					limit = {
+						NOT = {
+							has_government = WuZHengFuGuongCHanZHuYi
+							has_government = GuongTuanZHuYi
+							has_government = MaKeSi_LieNingZHuYi
+							has_government = TuoLuoSiJiZHuYi
+							has_government = SiDaLingZHuYi
+							has_government = YuanSHiZHuYi
+							has_government = JunZHengGuongCHanZHuYi
+						}
+					}
+					country_event = {
+						id = bw_GER_FanBuErSHiWeiKeZHiYuanJun.1
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+#政治线
+
+# # #第一阶段
+	focus = {
+		id = GER_NaCuiDeDeYiZHi #纳粹的德意志
+		icon = GFX_NaCuiDeDeYiZHi
+		cost = 0
+		x = 10
+		y = 6
+		allow_branch = {
+			#has_completed_focus = GER_NaCuiDeDeYiZHi #纳粹的德意志
+		}
+		completion_reward = {
+			custom_effect_tooltip = JieSuoXiaYiBuGuoCe #解锁下一步国策
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = GER_Reichspogromnacht #水晶之夜
+		icon = GFX_SHuiJingZHiYe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_NaCuiDeDeYiZHi #纳粹的德意志
+		}
+		x = 8
+		y = 7
+		completion_reward = {
+			add_manpower = -2000
+			add_timed_idea = {
+				idea = bw_GER_SHuiJingZHiYe
+				days = 60
+			}
+		}
+	}
+	focus = {
+		id = GER_Nacht_der_langen_Messer #长刀之夜
+		icon = GFX_CHangDaoZHiYe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_NaCuiDeDeYiZHi #纳粹的德意志
+		}
+		x = 12
+		y = 7
+		completion_reward = {
+			add_manpower = -2000
+			add_popularity = {
+				ideology = MinZuSHeHuiZHuYi
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = GER_GeRenCHongBai #个人崇拜
+		icon = GFX_GeRenCHongBai
+		cost = 5.00
+		prerequisite = {
+			focus = GER_NaCuiDeDeYiZHi #纳粹的德意志
+		}
+		x = 10
+		y = 8
+		completion_reward = {
+			add_country_leader_trait = WeiDaDeYuanSHou
+		}
+	}
+	focus = {
+		id = GER_JieJueJingJiWeiTi #处理经济问题
+		icon = GFX_JieJueJingJiWeiTi
+		cost = 5.00
+		prerequisite = {
+			focus = GER_GeRenCHongBai #个人崇拜
+		}
+		x = 10
+		y = 9
+		completion_reward = {
+			news_event = {
+				id = bw_GER.5
+				days = 1
+				random = 0
+			}
+		}
+	}
+# # #第二阶段
+# # # # # #信任戈林分支
+	focus = {
+		id = GER_XinRenGeLin #信任戈林
+		icon = GFX_XinRenGeLin
+		cost = 5.00
+		prerequisite = {
+			focus = GER_JieJueJingJiWeiTi #处理经济问题
+		}
+		x = 8
+		y = 10
+		available = {
+			always = no
+		}
+		completion_reward = {
+			activate_advisor = Hermann_Goring
+			set_can_be_fired_in_advisor_role = {
+				character = GER_Hermann_Goring
+				value = no
+			}
+
+			custom_effect_tooltip = JieSuoXiaYiBuGuoCe #解锁下一步国策
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = GER_HerGor_ZHaiQvan #菲格债券
+		icon = GFX_HerGor_ZHaiQvan
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XinRenGeLin #信任戈林
+		}
+		x = 8
+		y = 11
+		allow_branch = {
+			has_completed_focus = GER_XinRenGeLin #信任戈林
+		}
+		completion_reward = {
+#			add_timed_idea = {
+#				idea =  bw_GER_HerGor_ZHaiQvan
+#				days = 1460
+#			}
+			add_ideas = bw_GER_HerGor_ZHaiQvan
+		}
+	}
+	focus = {
+		id = GER_GuoYouHua #国有化
+		icon = GFX_GuoYouHua
+		cost = 5.00
+		prerequisite = {
+			focus = GER_HerGor_ZHaiQvan #菲格债券
+		}
+		x = 8
+		y = 12
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}			
+		}
+	}
+	focus = {
+		id = GER_Reichswerke_Hermann_Gpring #赫尔曼·戈林国家工厂
+		icon = GFX_Reichswerke_Hermann_Gpring
+		cost = 5.00
+		prerequisite = {
+			focus = GER_GuoYouHua #国有化
+		}
+		x = 8
+		y = 13
+		completion_reward = {
+			every_state = {
+				limit = { is_core_of = GER }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_ZHanZHengJingJiXue #战争经济学
+		icon = GFX_ZHanZHengJingJiXue
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Reichswerke_Hermann_Gpring # #赫尔曼·戈林国家工厂
+		}
+		x = 8
+		y = 14
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}
+		}
+	}
+# # # # # #释放沙赫特分支
+	focus = {
+		id = GER_SHiFangSHaHeTe #释放沙赫特
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_JieJueJingJiWeiTi #处理经济问题
+		}
+		x = 12
+		y = 10
+		available = {
+			always = no
+		}
+		completion_reward = {
+			activate_advisor = Hjalmar_Schacht
+			set_can_be_fired_in_advisor_role = {
+				character = GER_Hjalmar_Schacht
+				value = no
+			}
+
+			custom_effect_tooltip = JieSuoXiaYiBuGuoCe #解锁下一步国策
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = GER_Mefo_Wechsel #梅福券
+		icon = GFX_Mefo_Wechsel
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SHiFangSHaHeTe #释放沙赫特
+		}
+		x = 12
+		y = 11
+		allow_branch = {
+			has_completed_focus = GER_SHiFangSHaHeTe #释放沙赫特
+		}
+		completion_reward = {
+#			add_timed_idea = {
+#				idea = bw_GER_Mefo_Wechsel
+#				days = 1460
+#			}
+			add_ideas = bw_GER_Mefo_Wechsel
+		}
+	}
+	focus = {
+		id = GER_JinXingBuTie #进行补贴
+		icon = GFX_JinXingBuTie
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Mefo_Wechsel #梅福券
+		}
+		x = 12
+		y = 12
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_GER_ZHengFuBuTie
+				days = 365
+			}
+		}
+	}
+	focus = {
+		id = GER_Reichsautobahn #帝国高速公路
+		icon = GFX_Reichsautobahn
+		cost = 5.00
+		prerequisite = {
+			focus = GER_JinXingBuTie #进行补贴
+		}
+		x = 12
+		y = 13
+		available = {
+			OR = {
+				has_full_control_of_state = 64
+				has_full_control_of_state = 59
+				has_full_control_of_state = 60
+				has_full_control_of_state = 54
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = GER_autobahn_tt
+			hidden_effect = {
+				64 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				59 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				60 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				54 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_CHengNuoTouZiZiYou #承诺投资自由
+		icon = GFX_CHengNuoTouZiZiYou
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Reichsautobahn #帝国高速公路
+		}
+		x = 12
+		y = 14
+		completion_reward = {
+			add_ideas = bw_GER_TouZiZHeDeTianTang
+			add_ideas = laissez_faire_economy
+		}
+	}
+# # # # # #四年计划分支
+	focus = {
+		id = GER_SHiXianJingJiFuSu #实现经济复苏
+		icon = GFX_SHiXianJingJiFuSu
+		cost = 5.00
+		prerequisite = {
+			focus = GER_ZHanZHengJingJiXue #战争经济学
+			focus = GER_CHengNuoTouZiZiYou #承诺投资自由
+		}
+		x = 10
+		y = 15
+		completion_reward = {
+			remove_ideas = bw_GER_PoSuiDeJingJi
+
+			custom_effect_tooltip = JieSuoXiaYiBuGuoCe #解锁下一步国策
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = GER_Vierjahresplan #四年计划
+		icon = GFX_Vierjahresplan
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SHiXianJingJiFuSu #实现经济复苏
+		}
+		x = 10
+		y = 16
+		allow_branch = {
+			has_completed_focus = GER_SHiXianJingJiFuSu #实现经济复苏
+		}
+		completion_reward = {
+			add_ideas = bw_GER_Vierjahresplan
+		}
+	}
+	focus = {
+		id = GER_NiuNaiYvMianBao #牛奶与面包！
+		icon = GFX_NiuNaiYvMianBao
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Vierjahresplan #四年计划
+		}
+		x = 9
+		y = 17
+		completion_reward = {
+			add_ideas = bw_GER_NiuNaiYvMianBao
+		}
+	}
+	focus = {
+		id = GER_Kraft_durch_Freude #欢乐来自力量！
+		icon = GFX_Kraft_durch_Freude
+		cost = 5.00
+		prerequisite = {
+		add_stability = 0.05
+			focus = GER_Vierjahresplan #四年计划
+		}
+		x = 11
+		y = 17
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = state_controlled_unions_union
+		}
+	}
+	focus = {
+		id = GER_Volkswagen #大众汽车
+		icon = GFX_Volkswagen
+		cost = 5.00
+		prerequisite = {
+			focus = GER_NiuNaiYvMianBao #牛奶与面包！
+		}
+		prerequisite = {
+			focus = GER_Kraft_durch_Freude #欢乐来自力量！
+		}
+		x = 8
+		y = 18
+		completion_reward = {
+			subtract_from_variable = {
+				var = treasury
+				value = 600
+#				tooltip = sub_100_from_var_tt
+			}
+			add_stability = 0.05
+			add_ideas = bw_GER_Volkswagen
+		}
+	}
+	focus = {
+		id = GER_Wilhelm_Gustloff #威廉号邮轮
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_NiuNaiYvMianBao #牛奶与面包！
+		}
+		prerequisite = {
+			focus = GER_Kraft_durch_Freude #欢乐来自力量！
+		}
+		x = 10
+		y = 18
+		completion_reward = {
+			subtract_from_variable = {
+				var = treasury
+				value = 5000
+#				tooltip = sub_100_from_var_tt
+			}
+			add_stability = 0.05
+			add_ideas = bw_GER_Blohm_Voss
+		}
+	}
+	focus = {
+		id = GER_Seebad_Prora #普洛拉度假村
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_NiuNaiYvMianBao #牛奶与面包！
+		}
+		prerequisite = {
+			focus = GER_Kraft_durch_Freude #欢乐来自力量！
+		}
+		x = 12
+		y = 18
+		completion_reward = {
+			subtract_from_variable = {
+				var = treasury
+				value = 100000
+#				tooltip = sub_100_from_var_tt
+			}
+			add_ideas = bw_GER_Seebad_Prora
+		}
+	}
+	focus = {
+		id = GER_SHengHuoFuZu #生活富足
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Volkswagen #大众汽车
+		}
+		prerequisite = {
+			focus = GER_Wilhelm_Gustloff #威廉号邮轮
+		}
+		prerequisite = {
+			focus = GER_Seebad_Prora #普洛拉度假村
+		}
+		x = 10
+		y = 19
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = bw_FRA_DaXiaoTiao
+				add_idea = bw_GER_SHengHuoFuZu
+			}
+
+			custom_effect_tooltip = JieSuoXiaYiBuGuoCe #解锁下一步国策
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+# # # # # #延期菲格券分支
+	focus = {
+		id = GER_YanQi_HerGor_Qvan #延期菲格券
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SHengHuoFuZu #生活富足
+		}
+		prerequisite = {
+			focus = GER_ZHanZHengJingJiXue #战争经济学
+		}
+		x = 6
+		y = 20
+		allow_branch = {
+			has_completed_focus = GER_SHengHuoFuZu #生活富足
+		}
+		completion_reward = {
+			add_political_power = -100
+		}
+	}
+	focus = {
+		id = GER_Vierjahresplan_DiErJieDuan #四年计划第二阶段
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YanQi_HerGor_Qvan #延期菲格券
+		}
+		x = 6
+		y = 21
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_KuoJian_Reichswerke_Hermann_Gpring #扩建赫尔曼·戈林国家工厂
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Vierjahresplan_DiErJieDuan #四年计划第二阶段
+		}
+		x = 5
+		y = 22
+		completion_reward = {
+			every_state = {
+				limit = { is_core_of = GER }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_TiSHengSHengCHanZHiBiao #提升生产指标
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_KuoJian_Reichswerke_Hermann_Gpring #扩建赫尔曼·戈林国家工厂
+		}
+		x = 5
+		y = 23
+		completion_reward = {
+			add_ideas = bw_GER_TiSHengSHengCHanZHiBiao #提升生产指标
+		}
+	}
+	focus = {
+		id = GER_YanFaHeCHengSHiYou #研发合成石油
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_Vierjahresplan_DiErJieDuan #四年计划第二阶段
+		}
+		x = 7
+		y = 22
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.15
+				uses = 2
+				category = synth_resources
+			}
+		}
+	}
+	focus = {
+		id = GER_Coal_liquefaction #煤液化
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YanFaHeCHengSHiYou #研发合成石油
+		}
+		x = 7
+		y = 23
+		completion_reward = {
+			modify_building_resources = {
+				building = synthetic_refinery
+				resource = oil
+				amount = 1
+        		}
+		}
+	}
+	focus = {
+		id = GER_MaiXiangZiJiZiZu #迈向自给自足
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_TiSHengSHengCHanZHiBiao #提升生产指标
+		}
+		prerequisite = {
+			focus = GER_Coal_liquefaction #煤液化
+		}
+		x = 6
+		y = 24
+		completion_reward = {
+			add_ideas = bw_GER_MaiXiangZiJiZiZu #迈向自给自足
+		}
+	}
+	focus = {
+		id = GER_TiaoKongWuJia #调控物价
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_MaiXiangZiJiZiZu #迈向自给自足
+		}
+		x = 5
+		y = 25
+		completion_reward = {
+			add_ideas = bw_GER_TiaoKongWuJia #调控物价
+		}
+	}
+	focus = {
+		id = GER_JiaQiangGuoYouHua #加强国有化
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_MaiXiangZiJiZiZu #迈向自给自足
+		}
+		x = 7
+		y = 25
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = is_core_of = GER
+			}
+		}
+	}
+	focus = {
+		id = GER_SHiXingJiHuaJingJi #实行计划经济
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_TiaoKongWuJia #调控物价
+		}
+		prerequisite = {
+			focus = GER_JiaQiangGuoYouHua #加强国有化
+		}
+		x = 6
+		y = 26
+		completion_reward = {
+			add_ideas = planned_economy_economy
+
+			custom_effect_tooltip = JieSuoXiaYiBuGuoCe #解锁下一步国策
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	focus = {
+		id = GER_SHiXianZiJiZiZu #实现自给自足
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SHiXingJiHuaJingJi #实行计划经济
+		}
+		x = 6
+		y = 27
+		completion_reward = {
+			add_ideas = bw_GER_ZiJiZiZu
+		}
+	}
+# # # # # #支付梅福券分支
+	focus = {
+		id = GER_ZHiFu_Mefo_Wechsel #支付梅福券
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SHengHuoFuZu #生活富足
+		}
+		prerequisite = {
+			focus = GER_CHengNuoTouZiZiYou #承诺投资自由
+		}
+		x = 14
+		y = 20
+		allow_branch = {
+			has_completed_focus = GER_SHengHuoFuZu #生活富足
+		}
+		completion_reward = {
+			
+		}
+	}
+# # #第三阶段
+	focus = {
+		id = GER_YinYingXiaDeGuoDu #阴影下的国度
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SHiXingJiHuaJingJi #实行计划经济
+		}
+		x = 9
+		y = 27
+		allow_branch = {
+			has_completed_focus = GER_SHiXingJiHuaJingJi #实行计划经济
+		}
+		completion_reward = {
+			add_ideas = bw_GER_YinYingXiaDeGuoDu
+		}
+	}
+	focus = {
+		id = GER_YiCHangJunSHiDuBou #一场军事赌博
+		icon = GFX_DeAoHeBing
+		cost = 5.00
+		prerequisite = {
+			#focus = GER_YinYingXiaDeGuoDu #阴影下的国度
+		}
+		x = 9
+		y = 28
+		completion_reward = {
+			AUS = {
+				leave_faction = yes
+			}
+			declare_war_on = {
+				target = AUS
+				type = annex_everything
+			}
+
+			custom_effect_tooltip = GER_AUS_FRA_AoDiLiWeiJi_tt
+
+			set_variable = { FRA_ZHiCHiAoDiLi = 40 }
+			set_variable = { FRA_FangQiZHiCHiAoDiLi = 60 }
+
+			FRA = {
+				set_country_flag = FRA_ZHiCHiAoDiLi
+			}
+		}
+	}
+	focus = {
+		id = GER_WeiYeNaHuiYi #维也纳会议
+		icon = GFX_SuoQvQiYvAoDiLi
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YiCHangJunSHiDuBou #一场军事赌博
+		}
+		x = 7
+		y = 29
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_ZiSeFangAn #紫色方案
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_WeiYeNaHuiYi #维也纳会议
+		}
+		x = 7
+		y = 30
+		completion_reward = {
+			declare_war_on = {
+				target = ITA
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_MuNiHeiHuiYi #慕尼黑会议
+		icon = GFX_SuoQvSuTaiDe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YiCHangJunSHiDuBou #一场军事赌博
+		}
+		x = 11
+		y = 29
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_HongSeFangAn #红色方案
+		icon = GFX_JieKeDeMingYun
+		cost = 5.00
+		prerequisite = {
+			focus = GER_MuNiHeiHuiYi #但泽会议
+		}
+		x = 11
+		y = 30
+		completion_reward = {
+			declare_war_on = {
+				target = CZE
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_DanZuHuiYi #但泽会议
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YiCHangJunSHiDuBou #一场军事赌博
+		}
+		x = 9
+		y = 29
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_QingSeFangAn #青色方案
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_DanZuHuiYi #但泽会议
+		}
+		x = 9
+		y = 30
+		completion_reward = {
+			declare_war_on = {
+				target = PRE
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_SuoQvMaZuLun #索取马祖伦
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_QingSeFangAn #青色方案
+		}
+		x = 9
+		y = 31
+		completion_reward = {
+			declare_war_on = {
+				target = POL
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_GuanHuDeYiZHiMingYvDeYiZHan #关乎德意志命运的一战
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_SuoQvMaZuLun #索取马祖伦
+		}
+		x = 9
+		y = 32
+		completion_reward = {
+			declare_war_on = {
+				target = FRA
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ENG
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_HuangSeFangAn #黄色方案
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_GuanHuDeYiZHiMingYvDeYiZHan #关乎德意志命运的一战
+		}
+		x = 8
+		y = 33
+		completion_reward = {
+			declare_war_on = {
+				target = LUX
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = BEL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = HOL
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_LvSeFangAn #绿色方案
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_GuanHuDeYiZHiMingYvDeYiZHan #关乎德意志命运的一战
+		}
+		x = 10
+		y = 33
+		completion_reward = {
+			declare_war_on = {
+				target = SWI
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_BaiSeFangAn #白色方案
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_HuangSeFangAn #黄色方案
+			focus = GER_LvSeFangAn #绿色方案
+		}
+		x = 9
+		y = 34
+		completion_reward = {
+			declare_war_on = {
+				target = RFE
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UKR
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = DON
+				type = annex_everything
+			}
+		}
+	}
+	focus = {
+		id = GER_LanSeFangAn #蓝色方案
+		icon = GFX_SHiFangSHaHeTe
+		cost = 5.00
+		prerequisite = {
+			focus = GER_BaiSeFangAn #白色方案
+		}
+		x = 9
+		y = 35
+		completion_reward = {
+			declare_war_on = {
+				target = KUB
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GSK
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GEO
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ARM
+				type = annex_everything
+			}
+		}
+	}
+}

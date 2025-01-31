@@ -1,0 +1,1767 @@
+focus_tree = {
+	id = FocusTree
+	country = {
+		factor = 1
+	}
+
+#	continuous_focus_position = { x = 1600 y = 500 }
+#	continuous_focus_position = { x = 100 y = 1000 }
+	continuous_focus_position = { x = 100 y = 865 }
+
+	default = no
+	focus = {
+		id = ~
+		icon = GFX_goal_unknown
+		cost = 0.00
+		x = 0
+		y = 0
+		available = {
+			is_ai = no
+		}
+		completion_reward = {
+			add_ideas = myk_idea_DisSiTianZai
+		}
+	}
+
+#政治线
+
+	focus = {
+		id = ZHengZHiJueCe #政治决策
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 15
+		y = 1
+		completion_reward = {
+			add_political_power = 120
+		}
+	}
+# # #外交分支
+	focus = {
+		id = DuiWeiZHengCe #对外政策
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ZHengZHiJueCe #政治决策
+		}
+		x = 2
+		y = 2
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = GuoJiZongDui #国际纵队
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = DuiWeiZHengCe #对外政策
+		}
+		mutually_exclusive = {
+			focus = XvanBuZHongLi #宣布中立
+		}
+		x = 1
+		y = 3
+		completion_reward = {
+			add_ideas = volunteer_corps_focus
+			add_ideas = foreign_expeditions_focus
+		}
+	}
+	focus = {
+		id = XvanBuZHongLi #宣布中立
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = DuiWeiZHengCe #对外政策
+		}
+		mutually_exclusive = {
+			focus = GuoJiZongDui #国际纵队
+		}
+		x = 3
+		y = 3
+		completion_reward = {
+			add_ideas = neutrality_idea
+		}
+	}
+	focus = {
+		id = ZHengZHiWuZHuang #政治武装
+		icon = GFX_goal_unknown
+		cost = 1.00
+		prerequisite = {
+			focus = GuoJiZongDui #国际纵队
+			focus = XvanBuZHongLi #宣布中立
+		}
+		x = 1
+		y = 4
+		completion_reward = {
+			add_ideas = myk_idea_zzwz
+		}
+	}
+	focus = {
+		id = WuZHuangZHongLi #武装中立
+		icon = GFX_goal_unknown
+		cost = 4.00
+		prerequisite = {
+			focus = XvanBuZHongLi #宣布中立
+		}
+		x = 4
+		y = 4
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = neutrality_idea
+				add_idea = myk_idea_wzzl
+			}
+		}
+	}
+	focus = {
+		id = ZHengZHiPianYi #政治偏移
+		icon = GFX_goal_unknown
+		cost = 0.00
+		prerequisite = {
+			focus = WuZHuangZHongLi #武装中立
+		}
+		prerequisite = {
+			focus = XvanBuZHongLi #宣布中立
+		}
+		x = 3
+		y = 5
+		completion_reward = {
+			remove_ideas = neutrality_idea
+			remove_ideas = myk_idea_wzzl
+		}
+		available = {
+			threat > 0.5
+		}
+	}
+# # #集体主义大分支
+	focus = {
+		id = JiTiZHuYiJingSHen #集体主义精神
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ZHengZHiJueCe #政治决策
+		}
+		mutually_exclusive = {
+			focus = 个人主义精神
+		}
+		x = 12
+		y = 2
+		completion_reward = {
+			add_ideas = bw_JiTiZHuYiJingSHen
+		}
+	}
+# # # # # #共产主义中分支
+	focus = {
+		id = ZuZHiDaBaGuong #组织大罢工
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = JiTiZHuYiJingSHen #集体主义精神
+		}
+		mutually_exclusive = {
+			focus = 煽动民粹
+		}
+		x = 10
+		y = 3
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_DaBaGuang
+				days = 365 #182.5
+			}
+		}
+	}
+	focus = {
+		id = QvanGuoGeDiBoFangGuoJiGe #全国各地播放国际歌
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ZuZHiDaBaGuong #组织大罢工
+		}
+		x = 9
+		y = 4
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_GuoJiGe
+				days = 100
+			}
+		}
+	}
+	focus = {
+		id = XvanCHuanDangZHengCe #宣传党政策
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ZuZHiDaBaGuong #组织大罢工
+		}
+		x = 11
+		y = 4
+		completion_reward = {
+			add_popularity = {
+				ideology = MaKeSi_LieNingZHuYi
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = GeMingJiJiangBaoFa #革命即将爆发
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = QvanGuoGeDiBoFangGuoJiGe #全国各地播放国际歌
+		}
+		prerequisite = {
+			focus = XvanCHuanDangZHengCe #宣传党政策
+		}
+		x = 10
+		y = 5
+		available = {
+			MaKeSi_LieNingZHuYi > 0.25
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			add_popularity = {
+				ideology = MaKeSi_LieNingZHuYi
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = ZuiHoTongDie #最后通牒
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GeMingJiJiangBaoFa #革命即将爆发
+		}
+		x = 10
+		y = 7
+		available = {
+			MaKeSi_LieNingZHuYi > 0.5
+			
+		}
+		completion_reward = {
+			add_stability = -0.1
+			add_political_power = -50
+			set_politics = {
+				ruling_party = MaKeSi_LieNingZHuYi
+			}
+		}
+	}
+	focus = {
+		id = DiYiJieSuWeiAiDaiBiaoDaHui #第一届苏维埃代表大会
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ZuiHoTongDie #最后通牒
+		}
+		x = 10
+		y = 9 #11
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 25
+		}
+	}
+# # # # # # # # #卫国战争小分支
+#	focus = {
+#		id = ZHanXin_MeiHaoDe_ROOT #崭新，美好的<扮演国家>
+#		icon = GFX_goal_unknown
+#		cost = 5.00
+#		prerequisite = {
+#			focus = DiYiJieSuWeiAiDaiBiaoDaHui #第一届苏维埃代表大会
+#		}
+#		x = 10
+#		y = 10
+#		completion_reward = {
+#			add_stability = 0.05
+#			add_political_power = 25
+#		}
+#	}
+#	focus = {
+#		id = WeiDaDeWeiGuoZHanZHeng #伟大的卫国战争
+#		icon = GFX_goal_unknown
+#		cost = 5.00
+#		prerequisite = {
+#			focus = DiYiJieSuWeiAiDaiBiaoDaHui #第一届苏维埃代表大会
+#		}
+#		x = 10
+#		y = 10
+#		completion_reward = {
+#			add_stability = 0.05
+#			add_political_power = 25
+#		}
+#	}
+#	focus = {
+#		id = YiBuYeBuXvHouTui #一步也不许后退
+#		icon = GFX_goal_unknown
+#		cost = 5.00
+#		prerequisite = {
+#			focus = WeiDaDeWeiGuoZHanZHeng #伟大的卫国战争
+#		}
+#		x = 10
+#		y = 11
+#		completion_reward = {
+#			add_stability = 0.05
+#			add_political_power = 25
+#		}
+#	}
+# # # # # # # # #传统共产主义小分支
+	focus = {
+		id = 列宁式政党
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = DiYiJieSuWeiAiDaiBiaoDaHui #第一届苏维埃代表大会
+		}
+		mutually_exclusive = {
+			focus = WoMenZiJiDeDaoLu #我们自己的道路
+		}
+		x = 7
+		y = 12
+		completion_reward = {
+			add_political_power = 10
+		}
+	}
+	focus = {
+		id = DuoQvSHengCHanZiLiao #夺取生产资料
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 托洛斯基主义基础
+			focus = 斯大林主义基础
+			focus =  马列主义基础
+		}
+		mutually_exclusive = {
+			focus = HuanBuHuoDeSHengCHanZiLiao #缓步获得生产资料
+		}
+		x = 6
+		y = 14
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_DuoQvSHengCHanZiLiao
+				days = 100
+			}
+		}
+	}
+	focus = {
+		id = HuanBuHuoDeSHengCHanZiLiao #缓步获得生产资料
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 托洛斯基主义基础
+			focus = 斯大林主义基础
+			focus =  马列主义基础
+		}
+		mutually_exclusive = {
+			focus = DuoQvSHengCHanZiLiao #夺取生产资料
+		}
+		x = 4
+		y = 14
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_HuanBuHuoDeSHengCHanZiLiao
+				days = 100
+			}
+		}
+	}
+	focus = {
+		id = ZHengZHiWeiYuan #政治委员
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = GeRenCHongBei #个人崇拜
+			focus = JingJiHuZHuWeiYuanHui #经济互助委员会
+			focus = GuongTongMingYun #共同命运
+		}
+		x = 5
+		y = 19
+		completion_reward = {
+			add_ideas = bw_ZHengZHiWeiYuan
+		}
+	}
+# # # # # # # # # # # #传统托洛斯基迷你分支
+	focus = {
+		id = 托洛斯基主义基础
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 列宁式政党
+		}
+		mutually_exclusive = {
+			focus = 斯大林主义基础
+			focus = 马列主义基础
+		}
+		x = 2
+		y = 13
+		completion_reward = {
+			set_politics = {
+				ruling_party = TuoLuoSiJiZHuYi
+			}
+			add_MaKeSi_LieNingZHuYi_to_TuoLuoSiJiZHuYi = yes
+		}
+	}
+	focus = {
+		id = TiZHiQvZHongXinHua #体制去中心化
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = DuoQvSHengCHanZiLiao #夺取生产资料
+			focus = HuanBuHuoDeSHengCHanZiLiao #缓步获得生产资料
+		}
+		prerequisite = {
+			focus = 托洛斯基主义基础
+		}
+		x = 2
+		y = 15
+		completion_reward = {
+			add_ideas = SOV_system_decentralization_idea
+		}
+	}
+	focus = {
+		id = HongJun #红军
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = TiZHiQvZHongXinHua #体制去中心化
+		}
+		x = 2
+		y = 16
+		completion_reward = {
+			add_ideas = bw_HongJun
+		}
+	}
+	focus = {
+		id = JunDuiYouXian #军队优先
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = HongJun #红军
+		}
+		x = 0
+		y = 17
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = bw_HongJun
+				add_idea = bw_JunDuiYouXian
+			}
+		}
+	}
+	focus = {
+		id = BuDuanGeMingLuen #不断革命论
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = HongJun #红军
+		}
+		x = 2
+		y = 17
+		completion_reward = {
+			add_ideas = bw_BuDuanGeMingLuen
+		}
+	}
+	focus = {
+		id = JingJiHuZHuWeiYuanHui #经济互助委员会
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = BuDuanGeMingLuen #不断革命论
+		}
+		x = 2
+		y = 18
+		completion_reward = {
+			add_ideas = SOV_comecon_sov_default
+			custom_effect_tooltip = SOV_found_the_comecon_subjects_tt
+			if = {
+				every_other_country = {
+					limit = {
+						is_subject_of = ROOT
+					}
+					add_ideas = SOV_comecon_puppet_default
+				}
+			}
+			unlock_decision_tooltip = bw_YaoQingXinCHengYuan
+		}
+	}
+# # # # # # # # # # # #传统斯大林迷你分支
+	focus = {
+		id = 斯大林主义基础
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 列宁式政党
+		}
+		mutually_exclusive = {
+			focus = 托洛斯基主义基础
+			focus = 马列主义基础
+		}
+		x = 5
+		y = 13
+		completion_reward = {
+			set_politics = {
+				ruling_party = SiDaLingZHuYi
+			}
+			add_MaKeSi_LieNingZHuYi_to_SiDaLingZHuYi = yes
+		}
+	}
+	focus = {
+		id = NngYJiTiHua #农业集体化
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = DuoQvSHengCHanZiLiao #夺取生产资料
+			focus = HuanBuHuoDeSHengCHanZiLiao #缓步获得生产资料
+		}
+		prerequisite = {
+			focus = 斯大林主义基础
+		}
+		x = 5
+		y = 15
+		completion_reward = {
+			add_ideas = bw_NngYJiTiHua
+		}
+	}
+	focus = {
+		id = YiGuoJianCHengSHeHuiZHuYi #一国建成社会主义
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = NngYJiTiHua #农业集体化
+		}
+		x = 5
+		y = 16
+		completion_reward = {
+			add_ideas = bw_YiGuoJianCHengSHeHuiZHuYi
+		}
+	}
+	focus = {
+		id = CHaoGongYeHua #超工业化
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = YiGuoJianCHengSHeHuiZHuYi #一国建成社会主义
+		}
+		x = 5
+		y = 17
+		completion_reward = {
+			add_ideas = bw_CHaoGongYeHua
+		}
+	}
+	focus = {
+		id = GeRenCHongBei #个人崇拜
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = CHaoGongYeHua #超工业化
+		}
+		x = 5
+		y = 18
+		completion_reward = {
+			add_country_leader_trait = nationalist_symbol
+		}
+	}
+# # # # # # # # # # # #传统马列迷你分支
+	focus = {
+		id = 马列主义基础
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 列宁式政党
+		}
+		mutually_exclusive = {
+			focus = 斯大林主义基础
+			focus = 托洛斯基主义基础
+		}
+		x = 8
+		y = 13
+		completion_reward = {
+			set_politics = {
+				ruling_party = MaKeSi_LieNingZHuYi
+			}
+		}
+	}
+	focus = {
+		id = XinJingJiZHengCe #新经济政策
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = DuoQvSHengCHanZiLiao #夺取生产资料
+			focus = HuanBuHuoDeSHengCHanZiLiao #缓步获得生产资料
+		}
+		prerequisite = {
+			focus = 马列主义基础
+		}
+		x = 8
+		y = 15
+		completion_reward = {
+			add_ideas = new_economic_policy
+		}
+	}
+	focus = {
+		id = KeCHiXvJingJi #可持续经济
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = XinJingJiZHengCe #新经济政策
+		}
+		x = 8
+		y = 16
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = new_economic_policy
+				add_idea = new_economic_policy_2
+			}
+		}
+	}
+	focus = {
+		id = SuWaiAiQvanWei #苏维埃权威
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = KeCHiXvJingJi #可持续经济
+		}
+		x = 8
+		y = 17
+		completion_reward = {
+			add_ideas = SOV_soviet_hegemony_idea
+		}
+	}
+	focus = {
+		id = GuongTongMingYun #共同命运
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = SuWaiAiQvanWei #苏维埃权威
+		}
+		x = 8
+		y = 18
+		completion_reward = {
+			add_ideas = bw_GuongTongMingYun
+		}
+	}
+# # # # # # # # #特色共产主义小分支
+	focus = {
+		id = WoMenZiJiDeDaoLu #我们自己的道路
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = DiYiJieSuWeiAiDaiBiaoDaHui #第一届苏维埃代表大会
+		}
+		mutually_exclusive = {
+			focus = 列宁式政党
+		}
+		x = 13
+		y = 12
+		completion_reward = {
+			add_popularity = {
+				ideology = MaKeSi_LieNingZHuYi
+				popularity = -0.1
+			}
+		}
+	}
+# # # # # # # # # # # #远视迷你分支
+	focus = {
+		id = YvKeXueJiaHeZuo #与科学家合作
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WoMenZiJiDeDaoLu #我们自己的道路
+		}
+		mutually_exclusive = {
+			focus = 民主的共产主义
+			focus = 建立公社集体
+		}
+		x = 12
+		y = 13
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_YvKeXueJiaHeZuo
+				days = 180
+			}
+		}
+	}
+#	focus = {
+#		id = 科学委员会
+#		icon = GFX_goal_unknown
+#		cost = 5.00
+#		prerequisite = {
+#			focus = YvKeXueJiaHeZuo #与科学家合作
+#		}
+#		x = 12
+#		y = 14
+#
+#	}
+	focus = {
+		id = DuiKangCHuanTongPai #对抗传统派
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = YvKeXueJiaHeZuo #与科学家合作
+		}
+		x = 12
+		y = 14
+
+	}
+	focus = {
+		id = 煽动民粹
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = JiTiZHuYiJingSHen #集体主义精神
+		}
+		mutually_exclusive = {
+			focus = ZuZHiDaBaGuong #组织大罢工
+		}
+		x = 14
+		y = 3
+
+	}
+	focus = {
+		id = 首都游行
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 煽动民粹
+		}
+		x = 14
+		y = 4
+
+	}
+	focus = {
+		id = 民主的共产主义
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WoMenZiJiDeDaoLu #我们自己的道路
+		}
+		mutually_exclusive = {
+			focus = YvKeXueJiaHeZuo #与科学家合作
+			focus = 建立公社集体
+		}
+		x = 15
+		y = 13
+
+	}
+	focus = {
+		id = 还没做好
+		icon = GFX_goal_unknown
+		cost = 0.00
+		prerequisite = {
+			focus = 民主的共产主义
+		}
+		x = 15
+		y = 14
+
+	}
+	focus = {
+		id = 个人主义精神
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ZHengZHiJueCe #政治决策
+		}
+		mutually_exclusive = {
+			focus = JiTiZHuYiJingSHen #集体主义精神
+		}
+		x = 18
+		y = 2
+
+	}
+	focus = {
+		id = 建立公社集体
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WoMenZiJiDeDaoLu #我们自己的道路
+		}
+		mutually_exclusive = {
+			focus = 民主的共产主义
+			focus = YvKeXueJiaHeZuo #与科学家合作
+		}
+		x = 18
+		y = 13
+		completion_reward = {
+			add_ideas = bw_GongSHe
+		}
+	}
+	focus = {
+		id = 工人委员会
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 建立公社集体
+		}
+		x = 18
+		y = 14
+		completion_reward = {
+			add_ideas = bw_GongRenWeiYuanHui
+		}
+	}
+	focus = {
+		id = 士兵委员会
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 建立公社集体
+		}
+		x = 20
+		y = 14
+		completion_reward = {
+			add_ideas = bw_SHiBingWeiYuanHui
+		}
+	}
+	focus = {
+		id = 直接民主制度
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 工人委员会
+		}
+		prerequisite = {
+			focus = 士兵委员会
+		}
+		x = 19
+		y = 15
+		completion_reward = {
+			add_ideas = bw_ZHiJieMinZHuZHi
+		}
+	}
+	focus = {
+		id = 万物投票
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 直接民主制度
+		}
+		x = 19
+		y = 16
+		completion_reward = {
+			add_stability = 0.05
+			add_popularity = {
+				ideology = WuZHengFuGuongCHanZHuYi
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = GuongTuanZHuYi
+				popularity = 0.1
+			}
+		}
+	}
+	focus = {
+		id = 公社集体化
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 建立公社集体
+		}
+		x = 23
+		y = 14
+		completion_reward = {
+			add_ideas = SPR_collectivized_society
+		}
+	}
+	focus = {
+		id = 确保每个人都有工作
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 建立公社集体
+		}
+		x = 25
+		y = 14
+		completion_reward = {
+			add_ideas = bw_QueBaoMeiGeRenDoYouGongZuo
+		}
+	}
+	focus = {
+		id = 粉碎私有制
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 公社集体化
+		}
+		prerequisite = {
+			focus = 确保每个人都有工作
+		}
+		x = 23
+		y = 15
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_FenSuiSiYouZHi
+				days = 100
+			}
+		}
+	}
+	focus = {
+		id = 粉碎货币
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 粉碎私有制
+		}
+		x = 23
+		y = 16
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = bw_FenSuiHuoBi
+		}
+	}
+	focus = {
+		id = 工作券制度
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 粉碎货币
+		}
+		x = 23
+		y = 17
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = 个公社自治
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 万物投票
+		}
+		prerequisite = {
+			focus = 工作券制度
+		}
+		mutually_exclusive = {
+			focus = 权力交给委员会
+		}
+		x = 20
+		y = 18
+		available = {
+			GuongTuanZHuYi > 0.4
+			
+		}
+		completion_reward = {
+			add_political_power = -10
+			set_politics = {
+				ruling_party = GuongTuanZHuYi
+			}
+		}
+	}
+	focus = {
+		id = 权力交给委员会
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 工作券制度
+		}
+		prerequisite = {
+			focus = 万物投票
+		}
+		mutually_exclusive = {
+			focus = 个公社自治
+		}
+		x = 22
+		y = 18
+		available = {
+			WuZHengFuGuongCHanZHuYi > 0.4
+			
+		}
+		completion_reward = {
+			add_political_power = -10
+			set_politics = {
+				ruling_party = WuZHengFuGuongCHanZHuYi
+			}
+		}
+	}
+	focus = {
+		id = WanJvGouHuo #万具篝火
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 个公社自治
+			focus = 权力交给委员会
+		}
+		x = 21
+		y = 19
+		completion_reward = {
+			add_ideas = bw_WanJvGouHuo
+		}
+	}
+#	focus = {
+#		id = 无政府，无国界
+#		icon = GFX_goal_unknown
+#		cost = 5.00
+#		prerequisite = {
+#			focus = WanJvGouHuo #万具篝火
+#		}
+#		x = 21
+#		y = 20
+#		completion_reward = {
+#			add_ideas = bw_WuZHengFu_WuGuoJie
+#		}
+#	}
+
+#共产通用小分支
+
+	focus = {
+		id = WuNianJiHua #五年计划
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WanJvGouHuo #万具篝火
+			focus = ZHengZHiWeiYuan #政治委员
+		}
+		x = 7
+		y = 20
+		completion_reward = {
+			add_timed_idea = {
+				idea = bw_WuNianJiHua
+				days = 1825
+			}
+		}
+	}
+	focus = {
+		id = 前进之路
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WanJvGouHuo #万具篝火
+			focus = ZHengZHiWeiYuan #政治委员
+		}
+		x = 13 #10
+		y = 20
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = 福利国家
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WanJvGouHuo #万具篝火
+			focus = ZHengZHiWeiYuan #政治委员
+		}
+		x = 19
+		y = 20
+		completion_reward = {
+			add_ideas = bw_FuLiGuoJia
+		}
+	}
+	focus = {
+		id = 马克思护神
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WuNianJiHua #五年计划
+			focus = 前进之路
+		}
+		x = 10
+		y = 21
+		completion_reward = {
+			add_ideas = bw_MaKeSiHuSHen
+		}
+	}
+	focus = {
+		id = 乐土
+		icon = GFX_goal_unknown
+		cost = 5.00
+#		prerequisite = {
+#			focus = 福利国家
+#			focus = 前进之路
+#		}
+		prerequisite = {
+			focus = 福利国家
+		}
+		prerequisite = {
+			focus = 前进之路
+		}
+		x = 16
+		y = 21
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = bw_FuLiGuoJia
+				add_idea = bw_LeTu
+			}
+		}
+	}
+	focus = {
+		id = 钢铁洪流
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = WuNianJiHua #五年计划
+			focus = 马克思护神
+		}
+		x = 7
+		y = 22
+		completion_reward = {
+			add_ideas = bw_GangTieHuongLiu
+		}
+	}
+	focus = {
+		id = 反修正主义
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 马克思护神
+		}
+		prerequisite = {
+			focus = 乐土
+		}
+		x = 13
+		y = 22
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = 群众运动
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 福利国家
+			focus = 乐土
+		}
+		x = 19
+		y = 22
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = 共产主义乌托邦
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 钢铁洪流
+		}
+		prerequisite = {
+			focus = 反修正主义
+		}
+		prerequisite = {
+			focus = 群众运动
+		}
+		x = 13
+		y = 23
+		completion_reward = {
+
+		}
+	}
+
+#工业线
+
+	focus = {
+		id = 重视民用
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 工厂建设
+		}
+		mutually_exclusive = {
+			focus = 重视军用
+		}
+		x = 45
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 扩建建筑部门
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 5.00
+		prerequisite = {
+			focus = 重视民用
+		}
+		x = 44
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 工业研发
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = 工厂建设
+		}
+		x = 46
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = 重视军用
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 工厂建设
+		}
+		mutually_exclusive = {
+			focus = 重视民用
+		}
+		x = 47
+		y = 1
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 扩建军火库
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 5.00
+		prerequisite = {
+			focus = 重视军用
+		}
+		x = 48
+		y = 2
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 基础设施1
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 5.00
+		prerequisite = {
+			focus = 扩建建筑部门
+			focus = 扩建军火库
+		}
+		x = 42
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 1
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = 重视建设
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 扩建建筑部门
+			focus = 扩建军火库
+		}
+		x = 44
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 机械研究
+		icon = GFX_goal_generic_production2
+		cost = 5.00
+		prerequisite = {
+			focus = 扩建建筑部门
+			focus = 扩建军火库
+		}
+		prerequisite = {
+			focus = 工业研发
+		}
+		x = 46
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = 重视军备Ⅰ
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 扩建军火库
+			focus = 扩建建筑部门
+		}
+		x = 48
+		y = 3
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 重视军备Ⅱ
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 重视军备Ⅰ
+		}
+		x = 48
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 重视军备Ⅲ
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 重视军备Ⅱ
+		}
+		x = 48
+		y = 5
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 电报科技Ⅱ
+		icon = GFX_goal_generic_radar
+		cost = 5.00
+		prerequisite = {
+			focus = 电报科技
+		}
+		x = 49
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = 电报科技Ⅲ
+		icon = GFX_goal_generic_radar
+		cost = 5.00
+		prerequisite = {
+			focus = 电报科技Ⅱ
+		}
+		x = 50
+		y = 2
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = 扩招科学家
+		icon = GFX_focus_research
+		cost = 0.00
+		prerequisite = {
+			focus = 重视军用
+			focus = 重视民用
+		}
+		prerequisite = {
+			focus = 工业研发
+		}
+		x = 50
+		y = 3
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = 增大科研支出
+		icon = GFX_focus_research
+		cost = 10.00
+		prerequisite = {
+			focus = 扩招科学家
+		}
+		x = 50
+		y = 4
+		completion_reward = {
+			add_research_slot = 1
+		}
+		available = {
+			num_of_factories > 50
+		}
+	}
+	focus = {
+		id = 奇迹武器
+		icon = GFX_focus_research
+		cost = 5.00
+		prerequisite = {
+			focus = 扩招科学家
+		}
+		x = 52
+		y = 4
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 4
+				category = electronics
+				category = nuclear
+				category = rocketry
+			}
+		}
+	}
+	focus = {
+		id = 核科技
+		icon = GFX_focus_wonderweapons
+		cost = 5.00
+		prerequisite = {
+			focus = 奇迹武器
+		}
+		x = 50
+		y = 5
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear_bonus
+				ahead_reduction = 2
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = 电报科技Ⅳ
+		icon = GFX_goal_generic_radar
+		cost = 5.00
+		prerequisite = {
+			focus = 电报科技Ⅲ
+		}
+		x = 52
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = secret_bonus
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	focus = {
+		id = 基础设施2
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 5.00
+		prerequisite = {
+			focus = 基础设施1
+		}
+		x = 42
+		y = 4
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 1
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = 基础设施3
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 5.00
+		prerequisite = {
+			focus = 基础设施2
+		}
+		x = 42
+		y = 5
+			completion_reward = {
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 0
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 0
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							limit = {
+									free_building_slots = {
+											building = infrastructure
+											size > 1
+										}
+									OR = {
+											is_in_home_area = yes
+											NOT = {
+													owner = {
+															any_owned_state = {
+																	free_building_slots = {
+																			building = infrastructure
+																			size > 1
+																		}
+																	is_in_home_area = yes
+																}
+														}
+												}
+										}
+								}
+							add_building_construction = {
+									type = infrastructure
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = 海军建设
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = 重视军用
+			focus = 重视民用
+		}
+		prerequisite = {
+			focus = 重视海军
+		}
+		x = 46
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 海军建设Ⅱ
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = 海军建设
+		}
+		x = 46
+		y = 5
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 重视建设Ⅱ
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 重视建设
+		}
+		x = 44
+		y = 4
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = 重视建设Ⅲ
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = 重视建设Ⅱ
+		}
+		x = 44
+		y = 5
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+}
