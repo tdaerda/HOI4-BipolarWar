@@ -3760,6 +3760,30 @@ spriteTypes = {
 		name = "GFX_SHengHuoFuZu"
 		texturefile = "gfx/interface/goals/GER/生活富足.png"
 	}
+	SpriteType = {
+		name = "GFX_YanQi_HerGor_Qvan"
+		texturefile = "gfx/interface/goals/GER/延期菲格券.png"
+	}
+	SpriteType = {
+		name = "GFX_Vierjahresplan_DiErJieDuan"
+		texturefile = "gfx/interface/goals/GER/四年计划第二阶段.png"
+	}
+	SpriteType = {
+		name = "GFX_KuoJian_Reichswerke_Hermann_Gpring"
+		texturefile = "gfx/interface/goals/GER/扩建赫尔曼·戈林工厂.png"
+	}
+	SpriteType = {
+		name = "GFX_TiSHengSHengCHanZHiBiao"
+		texturefile = "gfx/interface/goals/GER/提升生产指标.png"
+	}
+	SpriteType = {
+		name = "GFX_YanFaHeCHengSHiYou"
+		texturefile = "gfx/interface/goals/GER/研发合成石油.png"
+	}
+	SpriteType = {
+		name = "GFX_Coal_liquefaction"
+		texturefile = "gfx/interface/goals/GER/煤液化.png"
+	}
 	# # # # # #英国
 	SpriteType = {
 		name = "GFX_JiejueJingJiWeiJi"

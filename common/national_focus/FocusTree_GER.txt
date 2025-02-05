@@ -942,7 +942,7 @@ focus_tree = {
 # # # # # #延期菲格券分支
 	focus = {
 		id = GER_YanQi_HerGor_Qvan #延期菲格券
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_YanQi_HerGor_Qvan
 		cost = 5.00
 		prerequisite = {
 			focus = GER_SHengHuoFuZu #生活富足
@@ -961,7 +961,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_Vierjahresplan_DiErJieDuan #四年计划第二阶段
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_Vierjahresplan_DiErJieDuan
 		cost = 5.00
 		prerequisite = {
 			focus = GER_YanQi_HerGor_Qvan #延期菲格券
@@ -974,7 +974,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_KuoJian_Reichswerke_Hermann_Gpring #扩建赫尔曼·戈林国家工厂
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_KuoJian_Reichswerke_Hermann_Gpring
 		cost = 5.00
 		prerequisite = {
 			focus = GER_Vierjahresplan_DiErJieDuan #四年计划第二阶段
@@ -995,7 +995,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_TiSHengSHengCHanZHiBiao #提升生产指标
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_TiSHengSHengCHanZHiBiao
 		cost = 5.00
 		prerequisite = {
 			focus = GER_KuoJian_Reichswerke_Hermann_Gpring #扩建赫尔曼·戈林国家工厂
@@ -1008,7 +1008,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_YanFaHeCHengSHiYou #研发合成石油
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_YanFaHeCHengSHiYou
 		cost = 5.00
 		prerequisite = {
 			focus = GER_Vierjahresplan_DiErJieDuan #四年计划第二阶段
@@ -1025,7 +1025,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_Coal_liquefaction #煤液化
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_Coal_liquefaction
 		cost = 5.00
 		prerequisite = {
 			focus = GER_YanFaHeCHengSHiYou #研发合成石油
@@ -1203,7 +1203,7 @@ focus_tree = {
 		icon = GFX_DeAoHeBing
 		cost = 5.00
 		prerequisite = {
-			#focus = GER_YinYingXiaDeGuoDu #阴影下的国度
+			focus = GER_YinYingXiaDeGuoDu #阴影下的国度
 		}
 		x = 9
 		y = 28
