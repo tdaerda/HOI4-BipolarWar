@@ -873,7 +873,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_Wilhelm_Gustloff #威廉号邮轮
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_Wilhelm_Gustloff
 		cost = 5.00
 		prerequisite = {
 			focus = GER_NiuNaiYvMianBao #牛奶与面包！
@@ -895,7 +895,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_Seebad_Prora #普洛拉度假村
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_Seebad_Prora
 		cost = 5.00
 		prerequisite = {
 			focus = GER_NiuNaiYvMianBao #牛奶与面包！
@@ -916,7 +916,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_SHengHuoFuZu #生活富足
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_SHengHuoFuZu
 		cost = 5.00
 		prerequisite = {
 			focus = GER_Volkswagen #大众汽车

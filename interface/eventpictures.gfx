@@ -3748,6 +3748,18 @@ spriteTypes = {
 		name = "GFX_Volkswagen"
 		texturefile = "gfx/interface/goals/GER/大众汽车.png"
 	}
+	SpriteType = {
+		name = "GFX_Wilhelm_Gustloff"
+		texturefile = "gfx/interface/goals/GER/威廉号邮轮.png"
+	}
+	SpriteType = {
+		name = "GFX_Seebad_Prora"
+		texturefile = "gfx/interface/goals/GER/普洛拉度假村.png"
+	}
+	SpriteType = {
+		name = "GFX_SHengHuoFuZu"
+		texturefile = "gfx/interface/goals/GER/生活富足.png"
+	}
 	# # # # # #英国
 	SpriteType = {
 		name = "GFX_JiejueJingJiWeiJi"

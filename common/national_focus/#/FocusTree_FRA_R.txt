@@ -1,0 +1,177 @@
+focus_tree = {
+	id = FocusTree_FRA
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = 
+		}
+	}
+	default = no
+	focus = {
+		id = 黑色星期三
+		icon = GFX_goal_unknown
+		cost = 0.00
+		x = 5
+		y = 6
+
+	}
+	focus = {
+		id = 黑色星期三
+		icon = GFX_goal_unknown
+		cost = 0.00
+		x = 5
+		y = 6
+
+	}
+	focus = {
+		id = 阿比西尼亚危机
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 12
+		y = 1
+
+	}
+	focus = {
+		id = 阿比西尼亚危机
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 12
+		y = 1
+
+	}
+	focus = {
+		id = 实行金本位
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 5
+		y = 1
+
+	}
+	focus = {
+		id = 认可凯恩斯
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 实行金本位
+		}
+		mutually_exclusive = {
+			focus = 认可哈耶克
+		}
+		x = 3
+		y = 2
+
+	}
+	focus = {
+		id = 补贴军工
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 认可凯恩斯
+		}
+		mutually_exclusive = {
+			focus = 发展民用
+		}
+		x = 2
+		y = 3
+
+	}
+	focus = {
+		id = 发展民用
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 认可凯恩斯
+		}
+		mutually_exclusive = {
+			focus = 补贴军工
+		}
+		x = 4
+		y = 3
+
+	}
+	focus = {
+		id = 认可哈耶克
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 实行金本位
+		}
+		mutually_exclusive = {
+			focus = 认可凯恩斯
+		}
+		x = 7
+		y = 2
+
+	}
+	focus = {
+		id = 镇压工人
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 认可哈耶克
+		}
+		mutually_exclusive = {
+			focus = 放任罢工
+		}
+		x = 6
+		y = 3
+
+	}
+	focus = {
+		id = 放任罢工
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 认可哈耶克
+		}
+		mutually_exclusive = {
+			focus = 镇压工人
+		}
+		x = 8
+		y = 3
+
+	}
+	focus = {
+		id = 出售武器
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 补贴军工
+			focus = 发展民用
+			focus = 镇压工人
+			focus = 放任罢工
+		}
+		x = 5
+		y = 4
+
+	}
+	focus = {
+		id = 支持埃塞俄比亚
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 阿比西尼亚危机
+		}
+		mutually_exclusive = {
+			focus = 支持意大利
+		}
+		x = 11
+		y = 2
+
+	}
+	focus = {
+		id = 支持意大利
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 阿比西尼亚危机
+		}
+		mutually_exclusive = {
+			focus = 支持埃塞俄比亚
+		}
+		x = 13
+		y = 2
+
+	}
+}

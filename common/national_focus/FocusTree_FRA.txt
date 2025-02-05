@@ -4,174 +4,377 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = 
+			tag = FRA
 		}
 	}
 	default = no
+#第一阶段
 	focus = {
-		id = 黑色星期三
-		icon = GFX_goal_unknown
-		cost = 0.00
-		x = 5
-		y = 6
-
-	}
-	focus = {
-		id = 黑色星期三
-		icon = GFX_goal_unknown
-		cost = 0.00
-		x = 5
-		y = 6
-
-	}
-	focus = {
-		id = 阿比西尼亚危机
+		id = FRA_GuSHiWenTi #股市问题
 		icon = GFX_goal_unknown
 		cost = 5.00
-		x = 12
-		y = 1
+		x = 6
+		y = 0
 
 	}
 	focus = {
-		id = 阿比西尼亚危机
-		icon = GFX_goal_unknown
-		cost = 5.00
-		x = 12
-		y = 1
-
-	}
-	focus = {
-		id = 实行金本位
-		icon = GFX_goal_unknown
-		cost = 5.00
-		x = 5
-		y = 1
-
-	}
-	focus = {
-		id = 认可凯恩斯
+		id = FRA_DuiTouJiZHuYiZHanKaiGongSHi #对投机主义展开攻势
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 实行金本位
+			focus = FRA_BaoZHaFangAn #爆炸方案
 		}
-		mutually_exclusive = {
-			focus = 认可哈耶克
+		prerequisite = {
+			focus = FRA_ZuZHiFaLangBianZHi #阻止法郎贬值
 		}
-		x = 3
+		x = 6
 		y = 2
 
 	}
 	focus = {
-		id = 补贴军工
+		id = FRA_BaoZHaFangAn #爆炸方案
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 认可凯恩斯
+			focus = FRA_GuSHiWenTi #股市问题
 		}
-		mutually_exclusive = {
-			focus = 发展民用
+		x = 5
+		y = 1
+
+	}
+	focus = {
+		id = FRA_NongYeGaiGe #农业改革
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = FRA_BaoZHaFangAn #爆炸方案
 		}
-		x = 2
+		x = 5
 		y = 3
 
 	}
 	focus = {
-		id = 发展民用
+		id = FRA_ZuZHiFaLangBianZHi #阻止法郎贬值
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 认可凯恩斯
+			focus = FRA_GuSHiWenTi #股市问题
 		}
-		mutually_exclusive = {
-			focus = 补贴军工
-		}
-		x = 4
-		y = 3
+		x = 7
+		y = 1
 
 	}
 	focus = {
-		id = 认可哈耶克
+		id = FRA_XueJianZHengFuKaiZHi #削减政府开支
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 实行金本位
-		}
-		mutually_exclusive = {
-			focus = 认可凯恩斯
+			focus = FRA_ZuZHiFaLangBianZHi #阻止法郎贬值
 		}
 		x = 7
 		y = 2
 
 	}
 	focus = {
-		id = 镇压工人
+		id = FRA_GaiZHuoDeDoZHuoLe #该做的都做了...
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 认可哈耶克
+			focus = FRA_ZuZHiFaLangBianZHi #阻止法郎贬值
 		}
-		mutually_exclusive = {
-			focus = 放任罢工
+		prerequisite = {
+			focus = FRA_NongYeGaiGe #农业改革
 		}
 		x = 6
 		y = 3
 
 	}
+# # #外交分支
 	focus = {
-		id = 放任罢工
+		id = FRA_YiAiZHanZHeng #意埃战争
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 12
+		y = 0
+
+	}
+
+#第二阶段
+	focus = {
+		id = XvanJv #选举
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 5
+		y = 0
+		allow_branch = {
+			has_completed_focus =  XvanJv #选举
+		}
+	}
+# # #人民阵线达分支
+	focus = {
+		id = 人民阵线的胜利
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 11
+		y = 0
+
+	}
+# # # # # #共产派中分支
+	focus = {
+		id = 共产派
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 认可哈耶克
+			focus = 人民阵线的胜利
 		}
 		mutually_exclusive = {
-			focus = 镇压工人
+			focus = 社民派
+			focus = 激进派
+			focus = 新社派
 		}
-		x = 8
+		x = 5
+		y = 1
+
+	}
+# # # # # #社民派中分支
+	focus = {
+		id = 社民派
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 人民阵线的胜利
+		}
+		mutually_exclusive = {
+			focus = 共产派
+			focus = 激进派
+			focus = 新社派
+		}
+		x = 9
+		y = 1
+
+	}
+# # # # # #激进派中分支
+	focus = {
+		id = 激进派
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 人民阵线的胜利
+		}
+		mutually_exclusive = {
+			focus = 共产派
+			focus = 社民派
+			focus = 新社派
+		}
+		x = 13
+		y = 1
+
+	}
+# # # # # #新社派中分支
+	focus = {
+		id = Neo_socialisme #新社派
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 人民阵线的胜利
+		}
+		mutually_exclusive = {
+			focus = 共产派
+			focus = 社民派
+			focus = 激进派
+		}
+		x = 17
+		y = 1
+
+	}
+# # # # # # # # #法西斯小分支
+	focus = {
+		id = RongHe_Nationalism #融合民族主义
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus =Neo_socialisme #新社派
+		}
+		mutually_exclusive = {
+			focus = 任命技术官僚
+		}
+		x = 16
+		y = 2
+
+	}
+	focus = {
+		id = JieSan_Petite_Entente #解散小协约国
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = RongHe_Nationalism #融合民族主义
+		}
+		x = 16
 		y = 3
 
 	}
 	focus = {
-		id = 出售武器
+		id = YvYingGuoJueLie #与英国决裂
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 补贴军工
-			focus = 发展民用
-			focus = 镇压工人
-			focus = 放任罢工
+			focus = JieSan_Petite_Entente #解散小协约国
 		}
-		x = 5
+		x = 16
+		y = 4
+
+	}
+# # # # # # # # #加速小分支
+	focus = {
+		id = 任命技术官僚
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 新社派
+		}
+		mutually_exclusive = {
+			focus = 融合民族主义
+		}
+		x = 18
+		y = 2
+
+	}
+	focus = {
+		id = 建立威权统治
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 任命技术官僚
+		}
+		x = 18
+		y = 3
+
+	}
+	focus = {
+		id = 至上而下的革命
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 建立威权统治
+		}
+		x = 18
 		y = 4
 
 	}
 	focus = {
-		id = 支持埃塞俄比亚
+		id = 抛弃马克思
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 阿比西尼亚危机
+			focus = YvYingGuoJueLie #与英国决裂
+			focus = 至上而下的革命
 		}
-		mutually_exclusive = {
-			focus = 支持意大利
-		}
-		x = 11
-		y = 2
+		x = 17
+		y = 5
 
 	}
 	focus = {
-		id = 支持意大利
+		id = 摧毁传统主义...
 		icon = GFX_goal_unknown
 		cost = 5.00
 		prerequisite = {
-			focus = 阿比西尼亚危机
+			focus = 抛弃马克思
+		}
+		x = 17
+		y = 6
+
+	}
+	focus = {
+		id = ...包括传统的共产主义
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 摧毁传统主义...
+		}
+		x = 17
+		y = 7
+
+	}
+	focus = {
+		id = 支持亨利·德曼
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = ...包括传统的共产主义
 		}
 		mutually_exclusive = {
-			focus = 支持埃塞俄比亚
+			focus = 吞并比利时
 		}
-		x = 13
-		y = 2
+		x = 18
+		y = 8
+
+	}
+	focus = {
+		id = 吞并比利时
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 与英国决裂
+		}
+		prerequisite = {
+			focus = ...包括传统的共产主义
+		}
+		mutually_exclusive = {
+			focus = 支持亨利·德曼
+		}
+		x = 16
+		y = 8
+
+	}
+	focus = {
+		id = 法兰西的自然边界！
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 吞并比利时
+			focus = 支持亨利·德曼
+		}
+		x = 17
+		y = 9
+
+	}
+	focus = {
+		id = 跨过英吉利海峡
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 法兰西的自然边界！
+		}
+		prerequisite = {
+			focus = 吞并比利时
+		}
+		x = 16
+		y = 10
+
+	}
+	focus = {
+		id = 联络邓南遮
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 法兰西的自然边界！
+		}
+		x = 18
+		y = 10
+
+	}
+	focus = {
+		id = 新社国际
+		icon = GFX_goal_unknown
+		cost = 5.00
+		prerequisite = {
+			focus = 跨过英吉利海峡
+		}
+		prerequisite = {
+			focus = 联络邓南遮
+		}
+		x = 17
+		y = 11
 
 	}
 }
