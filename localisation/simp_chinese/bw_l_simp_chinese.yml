@@ -2146,10 +2146,11 @@
  
  GER_DongYuanCHongFengDui: "动员冲锋队"
  GER_DongYuanCHongFengDui_desc: "冲锋队是我们的基干力量，尽管质量差劲，但数量可看应用。"
- GER_DongYuanCHongFengDui_tt: "在慕尼黑生成22个冲锋队师"
+ GER_DongYuanCHongFengDui_tt: "在慕尼黑生成22个冲锋队"
  
  GER_DongYuanDangWeiJun: "动员党卫军"
- GER_DongYuanDangWeiJun_desc: "党卫军是我们的精锐力量，尽管面对正规军的时候略显劣势，但党卫军骑兵师和装甲掷弹兵师可以快速扩大占领区。"
+ GER_DongYuanDangWeiJun_desc: "党卫军是我们的精锐力量，尽管面对正规军的时候略显劣势，但党卫军骑兵师和装甲掷弹兵师可以快速扩大占领区，并且我们通过意大利和奥地利运来的几辆坦克。"
+ GER_DongYuanDangWeiJun_tt: "在慕尼黑生成13个武装党卫军"
  
  #GER_XiMuLaiJiangJun: "任命希姆莱"
  #GER_XiMuLaiJiangJun_desc: ""
@@ -2485,6 +2486,10 @@
  bw_ENG_DaYingDiGuo: "大英帝国"
  
  bw_HYD_TuBangLianMeng: "土邦联盟"
+ 
+ bw_GER_DaLuXieDin: "大陆协定"
+ 
+ bw_GER_TongMengGuo: "同盟国"
  
  #战争
  

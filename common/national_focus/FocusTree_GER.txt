@@ -56,7 +56,10 @@ focus_tree = {
 		x = 7
 		y = 1
 		completion_reward = {
-			custom_effect_tooltip = 生成一些党卫军部队
+			custom_effect_tooltip = GER_DongYuanDangWeiJun_tt
+			hidden_effect = {
+				load_oob = "GER_DongYuanDangWeiJun"
+			}
 #			custom_effect_tooltip = （从设定上来说，这个国策已经被完成了）
 		}
 	}
@@ -234,7 +237,7 @@ focus_tree = {
 		y = 2
 
 	}
-# # #外交分支
+# # #宣传分支
 	focus = {
 		id = GER_JianLinSHiWaiJiaoBuJiXvanCHuanBu #建立临时外交部及宣传部
 		icon = GFX_JianLinSHiWaiJiaoBuJiXvanCHuanBu
@@ -242,7 +245,7 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_FaXiSiZHiJian #法西斯之剑
 		}
-		x = 11
+		x = 12
 		y = 1
 		completion_reward = {
 			add_political_power = 10
@@ -256,7 +259,7 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_JianLinSHiWaiJiaoBuJiXvanCHuanBu #建立临时外交部及宣传部
 		}
-		x = 11
+		x = 13
 		y = 2
 		completion_reward = {
 			add_political_power = 10
@@ -289,7 +292,7 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_YvYingFaTanPan #与英法谈判
 		}
-		x = 11
+		x = 13
 		y = 3
 		completion_reward = {
 			FRA = {
@@ -305,22 +308,21 @@ focus_tree = {
 		prerequisite = {
 			focus = 以萨尔换取支援
 		}
-		x = 11
+		x = 13
 		y = 4
 		completion_reward = {
 			add_ideas = bw_GER_JvDaDeHongSeWeiXie
 		}
 	}
-# # #军事分支
 	focus = {
 		id = GER_GuDongDiFangJiangLing #鼓动敌方将领
 		icon = GFX_GuDongDiFangJiangLing
 		cost = 5.00
 		prerequisite = {
-			focus = GER_FaXiSiZHiJian #法西斯之剑
+			focus = GER_JianLinSHiWaiJiaoBuJiXvanCHuanBu #建立临时外交部及宣传部
 		}
-		x = 13
-		y = 1
+		x = 11
+		y = 2
 		completion_reward = {
 			GSR = {
 				news_event = {
@@ -338,8 +340,8 @@ focus_tree = {
 		prerequisite = {
 			focus = GER_GuDongDiFangJiangLing #鼓动敌方将领
 		}
-		x = 13
-		y = 2
+		x = 11
+		y = 3
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = bw_GER_JunGuoPaiGuoFangJunTaoKaoWoMen
@@ -349,33 +351,33 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_XvanCHuanSHengCuenKingJianLuen #宣传生存空间论
-		icon = GFX_CHongZuJunGuoPaiGuoFangJun
+		icon = GFX_XvanCHuanSHengCuenKingJianLuen
 		cost = 5.00
 		prerequisite = {
 			focus = GER_CHongZuJunGuoPaiGuoFangJun #重组军国派国防军
 		}
-		x = 13
-		y = 3
+		x = 11
+		y = 4
 		completion_reward = {
 			add_ideas = bw_GER_SHengCunKongJian
 		}
 	}
-	focus = {
-		id = GER_JiaRuRiErManMinZuZHuYi #加入日耳曼民族主义
-		icon = GFX_CHongZuJunGuoPaiGuoFangJun
-		cost = 5.00
-		prerequisite = {
-			focus = GER_XvanCHuanSHengCuenKingJianLuen #宣传生存空间论
-		}
-		x = 13
-		y = 4
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = bw_GER_SHengCunKongJian
-				add_idea = bw_GER_DeYiZHiMinZuDeSHengCunKongJian
-			}
-		}
-	}
+#	focus = {
+#		id = GER_JiaRuRiErManMinZuZHuYi #加入日耳曼民族主义
+#		icon = GFX_CHongZuJunGuoPaiGuoFangJun
+#		cost = 5.00
+#		prerequisite = {
+#			focus = GER_XvanCHuanSHengCuenKingJianLuen #宣传生存空间论
+#		}
+#		x = 11
+#		y = 4
+#		completion_reward = {
+#			swap_ideas = {
+#				remove_idea = bw_GER_SHengCunKongJian
+#				add_idea = bw_GER_DeYiZHiMinZuDeSHengCunKongJian
+#			}
+#		}
+#	}
 	focus = {
 		id = 反布尔什维克志愿军
 		icon = GFX_FanBuErSHiWeiKeZHiYuanJun
@@ -384,7 +386,7 @@ focus_tree = {
 			focus = GER_XvanCHuanJvDaDeHongSeWeiXie #宣传巨大的红色威胁
 		}
 		prerequisite = {
-			focus = GER_JiaRuRiErManMinZuZHuYi #加入日耳曼民族主义
+			focus = GER_XvanCHuanSHengCuenKingJianLuen #宣传生存空间论
 		}
 		x = 12
 		y = 5
@@ -1042,13 +1044,13 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_MaiXiangZiJiZiZu #迈向自给自足
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_MaiXiangZiJiZiZu
 		cost = 5.00
 		prerequisite = {
-			focus = GER_TiSHengSHengCHanZHiBiao #提升生产指标
+			#focus = GER_TiSHengSHengCHanZHiBiao #提升生产指标
 		}
 		prerequisite = {
-			focus = GER_Coal_liquefaction #煤液化
+			#focus = GER_Coal_liquefaction #煤液化
 		}
 		x = 6
 		y = 24
@@ -1058,7 +1060,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_TiaoKongWuJia #调控物价
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_TiaoKongWuJia
 		cost = 5.00
 		prerequisite = {
 			focus = GER_MaiXiangZiJiZiZu #迈向自给自足
@@ -1071,7 +1073,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_JiaQiangGuoYouHua #加强国有化
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_JiaQiangGuoYouHua
 		cost = 5.00
 		prerequisite = {
 			focus = GER_MaiXiangZiJiZiZu #迈向自给自足
@@ -1131,7 +1133,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_SHiXingJiHuaJingJi #实行计划经济
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_SHiXingJiHuaJingJi
 		cost = 5.00
 		prerequisite = {
 			focus = GER_TiaoKongWuJia #调控物价
@@ -1442,4 +1444,493 @@ focus_tree = {
 			}
 		}
 	}
+
+#外交线
+
+	focus = {
+		id = GER_ZHengSHiJianLiWaiJiaoBu #正式建立外交部
+		icon = GFX_ZHengSHiJianLiWaiJiaoBu
+		cost = 5.00
+		prerequisite = {
+			focus = GER_JianLinSHiWaiJiaoBuJiXvanCHuanBu #建立临时外交部及宣传部
+		}
+		prerequisite = {
+			focus = GER_NaCuiDeDeYiZHi #纳粹的德意志
+		}
+		x = 22
+		y = 7
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_XinRenNiuLaiTe #信任纽赖特
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_ZHengSHiJianLiWaiJiaoBu #正式建立外交部
+		}
+		mutually_exclusive = {
+			focus = GER_TiBaLiBinTeLuoFu #提拔里宾特洛甫
+		}
+		x = 21
+		y = 8
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_TiBaLiBinTeLuoFu #提拔里宾特洛甫
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_ZHengSHiJianLiWaiJiaoBu #正式建立外交部
+		}
+		mutually_exclusive = {
+			focus = GER_XinRenNiuLaiTe #信任纽赖特
+		}
+		x = 23
+		y = 8
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_LaoSHiYvXueSheng #老师与学生
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_LianLuoJiuMenYou #联络旧盟友
+			focus = GER_WeiLianErSHiDeJiaoXun #威廉二世的教训
+		}
+		x = 21
+		y = 10
+		completion_reward = {
+			ITA = {
+				add_opinion_modifier = { target = GER modifier = ger_ita_alliance_focus }
+			}
+		}
+	}
+	focus = {
+		id = GER_Legion_Condor #秃鹫军团
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_LianLuoJiuMenYou #联络旧盟友
+			focus = GER_WeiLianErSHiDeJiaoXun #威廉二世的教训
+		}
+		x = 23
+		y = 10
+		completion_reward = {
+			add_timed_idea = {
+				idea = SPA_spanish_civil_war_commitments
+				days = 730
+			}
+			SPA = {
+				add_opinion_modifier = { target = ROOT modifier = SPA_spanish_civil_war_commitments }
+			}
+		}
+	}
+
+# # #三皇同盟分支
+	focus = {
+		id = GER_LianLuoJiuMenYou #联络旧盟友
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XinRenNiuLaiTe #信任纽赖特
+			focus = GER_TiBaLiBinTeLuoFu #提拔里宾特洛甫
+		}
+		mutually_exclusive = {
+			focus = GER_WeiLianErSHiDeJiaoXun #威廉二世的教训
+		}
+		x = 17
+		y = 9
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_MoXiGeYvHaBuSiBao #墨西哥与哈布斯堡
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_LianLuoJiuMenYou #联络旧盟友
+		}
+		x = 16
+		y = 10
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_YingZiZHengFu #影子政府
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_MoXiGeYvHaBuSiBao #墨西哥与哈布斯堡
+		}
+		x = 16
+		y = 12
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_YvSHaHuangHuiWu #与沙皇会晤
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_LianLuoJiuMenYou #联络旧盟友
+		}
+		x = 18
+		y = 10
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_QvZHuAoSiManWaiJiaoGuan #驱逐奥斯曼外交官
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YvSHaHuangHuiWu #与沙皇会晤
+		}
+		x = 18
+		y = 12
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_SanGeDiGuoYiTiaoXian #三个帝国一条线
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_MoXiGeYvHaBuSiBao #墨西哥与哈布斯堡
+		}
+		prerequisite = {
+			focus = GER_YvSHaHuangHuiWu #与沙皇会晤
+		}
+		x = 17
+		y = 11
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = GER_DaLuLiangDuan #大陆两端
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_YingZiZHengFu #影子政府
+		}
+		prerequisite = {
+			focus = GER_QvZHuAoSiManWaiJiaoGuan #驱逐奥斯曼外交官
+		}
+		prerequisite = {
+			focus = GER_SanGeDiGuoYiTiaoXian #三个帝国一条线
+		}
+		x = 17
+		y = 13
+		completion_reward = {
+			create_faction = bw_GER_TongMengGuo
+			CSA = {
+				country_event = {
+					id = generic.5
+					days = 1
+				}
+			}
+			FER = {
+				country_event = {
+					id = generic.5
+					days = 1
+				}
+			}
+		}
+	}
+# # #轴心国分支
+	focus = {
+		id = GER_WeiLianErSHiDeJiaoXun #威廉二世的教训
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XinRenNiuLaiTe #信任纽赖特
+			focus = GER_TiBaLiBinTeLuoFu #提拔里宾特洛甫
+		}
+		mutually_exclusive = {
+			focus = GER_LianLuoJiuMenYou #联络旧盟友
+		}
+		x = 27
+		y = 9
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_XunZHaoDongFangMenYou #寻找东方盟友
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus =  GER_WeiLianErSHiDeJiaoXun #威廉二世的教训
+		}
+		x = 27
+		y = 10
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_DuiZHongYouHao #对中友好
+		icon = GFX_DuiHuaSHiHao
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XunZHaoDongFangMenYou #寻找东方盟友
+		}
+		mutually_exclusive = {
+			focus = GER_DuiRiYouHao #对日友好
+		}
+		x = 26
+		y = 11
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_ZHongDeZiYuanHeZuo #中德资源合作
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_DuiZHongYouHao #对中友好
+		}
+		x = 26
+		y = 12
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_DuiRiYouHao #对日友好
+		icon = GFX_DuiRiSHiHao
+		cost = 5.00
+		prerequisite = {
+			focus = GER_XunZHaoDongFangMenYou #寻找东方盟友
+		}
+		mutually_exclusive = {
+			focus = GER_DuiZHongYouHao #对中友好
+		}
+		x = 28
+		y = 11
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_RiDeHaiJunHeZuo #日德海军合作
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_DuiRiYouHao #对日友好
+		}
+		x = 28
+		y = 12
+		completion_reward = {
+			
+		}
+	}
+	focus = {
+		id = GER_DaLuLiangDuan #大陆两端
+		icon = GFX_1
+		cost = 5.00
+		prerequisite = {
+			focus = GER_RiDeHaiJunHeZuo #日德海军合作
+			focus = GER_ZHongDeZiYuanHeZuo #中德资源合作
+		}
+		x = 27
+		y = 13
+		completion_reward = {
+			create_faction = bw_GER_DaLuXieDin
+			if = {
+				limit = {
+					has_completed_focus = GER_DuiZHongYouHao #对中友好
+				}
+				CHI = {
+					country_event = {
+						id = generic.5
+						days = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = GER_DuiRiYouHao #对日友好
+				}
+				jap = {
+					country_event = {
+						id = generic.5
+						days = 1
+					}
+				}
+			}
+		}
+	}
+
+#战后国策
+
+	focus = {
+		id = GER_DaDaoJiuZHiXv #打倒旧秩序...
+		icon = GFX_1
+		cost = 0
+		x = 48
+		y = 0
+		completion_reward = {
+			add_war_support = 0.1
+		}
+	}
+	focus = {
+		id = GER_JianLiXinZHiXv #...建立新秩序
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_DaDaoJiuZHiXv #打倒旧秩序...
+		}
+		x = 48
+		y = 1
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = GER_ZuiHouDengSHenLi #最后的胜利
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_JianLiXinZHiXv #...建立新秩序
+		}
+		x = 48
+		y = 2
+		completion_reward = {
+			add_stability = -0.5
+			add_war_support = -0.5
+		}
+	}
+	focus = {
+		id = GER_WenDinJvSHi #稳定局势
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_YuanSHouDwZHuoBangYouBi_GePeiEr #元首的左膀右臂：戈培尔
+			focus = GER_DiGuoYuanSHuai_GeLin #帝国元帅：戈林
+			focus = GER_HeiWangZi_HaiDeLiXi #黑王子：海德里希
+			focus = GER_YuanSHouDeHaoYou_SHiPeiEr #元首的好友：施佩尔
+		}
+		x = 48
+		y = 4
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	focus = {
+		id = GER_XiTeLeDeGongJi #希特勒的功绩
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_WenDinJvSHi #稳定局势
+		}
+		x = 48
+		y = 5
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = GER_YuanSHouDeJiCHengZHe #元首的继承者
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_XiTeLeDeGongJi #希特勒的功绩
+		}
+		x = 48
+		y = 6
+		completion_reward = {
+			add_country_leader_trait = YuanSHou
+		}
+	}
+# # #小黄线
+	focus = {
+		id = GER_YuanSHouDwZHuoBangYouBi_GePeiEr #元首的左膀右臂：戈培尔
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_ZuiHouDengSHenLi #最后的胜利
+		}
+		mutually_exclusive = {
+			focus = GER_DiGuoYuanSHuai_GeLin #帝国元帅：戈林
+			focus = GER_HeiWangZi_HaiDeLiXi #黑王子：海德里希
+			focus = GER_YuanSHouDeHaoYou_SHiPeiEr #元首的好友：施佩尔
+		}
+		x = 39
+		y = 3
+		completion_reward = {
+
+		}
+	}
+# # #迈耶线
+	focus = {
+		id = GER_DiGuoYuanSHuai_GeLin #帝国元帅：戈林
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_ZuiHouDengSHenLi #最后的胜利
+		}
+		mutually_exclusive = {
+			focus = GER_YuanSHouDwZHuoBangYouBi_GePeiEr #元首的左膀右臂：戈培尔
+			focus = GER_HeiWangZi_HaiDeLiXi #黑王子：海德里希
+			focus = GER_YuanSHouDeHaoYou_SHiPeiEr #元首的好友：施佩尔
+		}
+		x = 45
+		y = 3
+		completion_reward = {
+
+		}
+	}
+# # #海局线
+	focus = {
+		id = GER_HeiWangZi_HaiDeLiXi #黑王子：海德里希
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_ZuiHouDengSHenLi #最后的胜利
+		}
+		mutually_exclusive = {
+			focus = GER_YuanSHouDwZHuoBangYouBi_GePeiEr #元首的左膀右臂：戈培尔
+			focus = GER_DiGuoYuanSHuai_GeLin #帝国元帅：戈林
+			focus = GER_YuanSHouDeHaoYou_SHiPeiEr #元首的好友：施佩尔
+		}
+		x = 51
+		y = 3
+		completion_reward = {
+
+		}
+	}
+# # #建筑施线
+	focus = {
+		id = GER_YuanSHouDeHaoYou_SHiPeiEr #元首的好友：施佩尔
+		icon = GFX_1
+		cost = 5
+		prerequisite = {
+			focus = GER_ZuiHouDengSHenLi #最后的胜利
+		}
+		mutually_exclusive = {
+			focus = GER_YuanSHouDwZHuoBangYouBi_GePeiEr #元首的左膀右臂：戈培尔
+			focus = GER_DiGuoYuanSHuai_GeLin #帝国元帅：戈林
+			focus = GER_HeiWangZi_HaiDeLiXi #黑王子：海德里希
+		}
+		x = 57
+		y = 3
+		completion_reward = {
+
+		}
+	}
+
 }

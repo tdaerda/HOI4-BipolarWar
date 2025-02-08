@@ -35,22 +35,141 @@ GER_ENG_FRA_RiNeiWaHeiYi = {
 			GER= {
 				has_completed_focus = GER_YvYingFaTanPan #与英法谈判
 			}
+			NOT = {
+				has_variable = GER_ENG_FRA_RiNeiWaHeiYi
+			}
 		}
 		available = {
 			NOT = {
-				has_variable = GER_AUS_FRA_AoDiLiWeiJi
+				has_variable = GER_ENG_FRA_RiNeiWaHeiYi
 			}
 		}
-		is_good = no                           # 这个任务的颜色编码是有益事情（非危机）
+		is_good = yes                           # 这个任务的颜色编码是有益事情（非危机）
 		selectable_mission = no                # 这个任务将在玩家点选任务时完成，而非自动完成
 		days_mission_timeout = 30              # 距离任务失败前有多少天？
 		timeout_effect = {                      # 当任务失败时会发生什么？
 			set_variable = { GER_ENG_FRA_RiNeiWaHeiYi = 100 }
+			FRA = {
+				if = {
+					limit = {
+						has_country_flag = ENG_ZHiCHiDeGuo
+					}
+					custom_effect_tooltip = ZHiCHiAoDiLi_tt
+					GER = {
+						add_ideas = bw_GSR_FaErSaiTiaoYue
+					}
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							has_country_flag = ENG_ZHiCHiDeGuo
+						}
+					}
+					custom_effect_tooltip = FangQiZHiCHiAoDiLi_tt
+					GER = {
+						add_ideas = bw_GER_RiNeiWaTiaoYue
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
 #ai倾向
 			factor = 0
+		}
+	}
+
+	ENG_ZHiCHiDeGuo = {
+#决议id
+
+		icon = ger_mefo_bills
+#图片
+
+		available = {
+#前提条件
+		}
+
+		cost = 10
+#花费政治点数
+
+		fire_only_once = no
+#是否一次性
+
+		visible = {
+#展示条件
+			tag = ENG
+			NOT = {
+				has_country_flag = ENG_ZHiCHiDeGuo
+				has_variable = GER_ENG_FRA_RiNeiWaHeiYi
+			}
+			GER= {
+				has_completed_focus = GER_YvYingFaTanPan #与英法谈判
+			}
+		}
+#		cancel_if_not_visible = yes
+#不知道有啥用
+
+		complete_effect = {
+#效果
+			set_country_flag = ENG_ZHiCHiDeGuo
+		}
+
+		ai_will_do = {
+#ai倾向
+			factor = 1
+			modifier = {
+				add = FRA_ZHiCHiAoDiLi
+				always = yes
+			}
+		}
+	}
+
+	ENG_FangQiZHiCHiDeGuo = {
+#决议id
+
+		icon = ger_mefo_bills
+#图片
+
+		available = {
+#前提条件
+		}
+
+		cost = 10
+#花费政治点数
+
+		fire_only_once = no
+#是否一次性
+
+		visible = {
+#展示条件
+			tag = ENG
+			has_country_flag =ENG_ZHiCHiDeGuo
+			NOT = {
+				has_variable = GER_ENG_FRA_RiNeiWaHeiYi
+			}
+			GER= {
+				has_completed_focus = GER_YvYingFaTanPan #与英法谈判
+			}
+		}
+#		cancel_if_not_visible = yes
+#不知道有啥用
+
+		complete_effect = {
+#效果
+			clr_country_flag = ENG_ZHiCHiDeGuo
+		}
+
+		ai_will_do = {
+#ai倾向
+			factor = 1
+			modifier = {
+				add = 80
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = FRA_FangQiZHiCHiAoDiLi
+				always = yes
+			}
 		}
 	}
 

@@ -3784,6 +3784,38 @@ spriteTypes = {
 		name = "GFX_Coal_liquefaction"
 		texturefile = "gfx/interface/goals/GER/煤液化.png"
 	}
+	SpriteType = {
+		name = "GFX_MaiXiangZiJiZiZu"
+		texturefile = "gfx/interface/goals/GER/迈向自给自足.png"
+	}
+	SpriteType = {
+		name = "GFX_CHongZuJunGuoPaiGuoFangJun"
+		texturefile = "gfx/interface/goals/GER/重组军国派国防军.png"
+	}
+	SpriteType = {
+		name = "GFX_XvanCHuanSHengCuenKingJianLuen"
+		texturefile = "gfx/interface/goals/GER/宣传生存空间论.png"
+	}
+	SpriteType = {
+		name = "GFX_JianLinSHiWaiJiaoBuJiXvanCHuanBu"
+		texturefile = "gfx/interface/goals/GER/建立临时外交部及宣传部.png"
+	}
+	SpriteType = {
+		name = "GFX_ZHengSHiJianLiWaiJiaoBu"
+		texturefile = "gfx/interface/goals/GER/正式建立外交部.png"
+	}
+	SpriteType = {
+		name = "GFX_TiaoKongWuJia"
+		texturefile = "gfx/interface/goals/GER/调控物价.png"
+	}
+	SpriteType = {
+		name = "GFX_JiaQiangGuoYouHua"
+		texturefile = "gfx/interface/goals/GER/加强国有化.png"
+	}
+	SpriteType = {
+		name = "GFX_SHiXingJiHuaJingJi"
+		texturefile = "gfx/interface/goals/GER/实行计划经济.png"
+	}
 	# # # # # #英国
 	SpriteType = {
 		name = "GFX_JiejueJingJiWeiJi"

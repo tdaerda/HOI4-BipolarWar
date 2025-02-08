@@ -93,8 +93,9 @@ add_ideas = {
 	}
 	add_ideas = {
 		bw_GER_RiNeiWaTiaoYue
-		bw_GER_FaErSaiTiXi
 	}
+	remove_ideas = bw_GER_FeiFaGuoJia
+
 	unlock_national_focus = GER_FaXiSiZHiJian #法西斯之剑
 	unlock_national_focus = GER_DongYuanCHongFengDui #动员冲锋队
 	unlock_national_focus = GER_DongYuanDangWeiJun #动员党卫军

@@ -22,7 +22,7 @@ country_event = { #胜利
 
 		hidden_effect = {
 			if = {
-				every_other_country = {
+				all_country = {
 					limit = {
 						always = yes
 					}
