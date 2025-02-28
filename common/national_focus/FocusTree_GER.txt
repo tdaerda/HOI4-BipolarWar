@@ -1186,7 +1186,7 @@ focus_tree = {
 # # #第三阶段
 	focus = {
 		id = GER_YinYingXiaDeGuoDu #阴影下的国度
-		icon = GFX_SHiFangSHaHeTe
+		icon = GFX_YinYingXiaDeGuoDu
 		cost = 5.00
 		prerequisite = {
 			focus = GER_SHiXingJiHuaJingJi #实行计划经济

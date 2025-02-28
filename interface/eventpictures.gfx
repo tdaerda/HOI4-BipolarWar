@@ -3816,6 +3816,10 @@ spriteTypes = {
 		name = "GFX_SHiXingJiHuaJingJi"
 		texturefile = "gfx/interface/goals/GER/实行计划经济.png"
 	}
+	SpriteType = {
+		name = "GFX_YinYingXiaDeGuoDu"
+		texturefile = "gfx/interface/goals/GER/阴影下的国度.png"
+	}
 	# # # # # #英国
 	SpriteType = {
 		name = "GFX_JiejueJingJiWeiJi"

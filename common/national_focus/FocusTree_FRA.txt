@@ -98,7 +98,14 @@ focus_tree = {
 		y = 0
 
 	}
+	focus = {
+		id = FRA_DeGuoNeiZHan #德国内战
+		icon = GFX_goal_unknown
+		cost = 5.00
+		x = 15
+		y = 0
 
+	}
 #第二阶段
 	focus = {
 		id = XvanJv #选举
