@@ -3842,6 +3842,31 @@ spriteTypes = {
 		name = "GFX_QingSuanZHiRi"
 		texturefile = "gfx/interface/goals/GSR/清算之日.png"
 	}
+	# # # # # #法国
+	SpriteType = {
+		name = "GFX_GuSHiWenTi"
+		texturefile = "gfx/interface/goals/FRA/股市问题.png"
+	}
+	SpriteType = {
+		name = "GFX_DuiTouJiZHuYiZHanKaiGongSHi"
+		texturefile = "gfx/interface/goals/FRA/对投机主义展开攻势.png"
+	}
+	SpriteType = {
+		name = "GFX_BaoZHaFangAn"
+		texturefile = "gfx/interface/goals/FRA/爆炸方案.png"
+	}
+	SpriteType = {
+		name = "GFX_NongYeGaiGe"
+		texturefile = "gfx/interface/goals/FRA/农业改革.png"
+	}
+	SpriteType = {
+		name = "GFX_ZuZHiFaLangBianZHi"
+		texturefile = "gfx/interface/goals/FRA/阻止法郎贬值.png"
+	}
+	SpriteType = {
+		name = "GFX_XueJianZHengFuKaiZHi"
+		texturefile = "gfx/interface/goals/FRA/削减政府开支.png"
+	}
 	# # #国民精神
 	# # # # # #黑德
 	SpriteType = {

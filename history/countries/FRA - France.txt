@@ -331,16 +331,20 @@ set_convoys = 300
 
 
 set_politics = {
-	ruling_party = democratic
-	last_election = "1932.5.1"
+	ruling_party = BaoSHouZHuYi
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 }
 set_popularities = {
-	democratic = 64
-	fascism = 1
-	neutrality = 15
-	communism = 20
+	BaoSHouZHuYi = 31.8
+	MaKeSi_LieNingZHuYi = 8.32
+	SHeHuiMinZHuZHuYi = 12.21
+	JiaSuZHuYi = 8.3
+	GuDianZiYouZHuYi = 19.18
+	FaXiSiZHuYi = 2.24 #0.24
+	MinZuSHeHuiZHuYi = 2.04 #0.04
+	JunZHuZHuYi = 2.14 #0.14
+	JiaZHangZHi = 13.77
 }
 
 add_ideas = {

@@ -2266,6 +2266,20 @@
  GSR_DiYiCiSuWuiAiHuiYi: "第一次苏维埃会议"
  GSR_DiYiCiSuWuiAiHuiYi_desc: ""
  
+ # # #法兰西
+ 
+ FRA_GuSHiWenTi: "股市问题"
+ FRA_GuSHiWenTi_desc: "自从1930年6月21日黑色星期六以来巴黎股市正在逐渐崩溃，根据经济学家的预测，在1936年巴黎股市就要突破临界点彻底崩盘，现在已经是1935年了，我们必须做点什么"
+ 
+ FRA_DuiTouJiZHuYiZHanKaiGongSHi: "对投机主义展开攻势"
+ FRA_DuiTouJiZHuYiZHanKaiGongSHi_desc: "投机主义是导致法郎贬值和黑色星期六的主要问题，我们需要解决这个问题，最好的方法是政府干预。"
+ 
+ FRA_BaoZHaFangAn: "爆炸方案"
+ FRA_BaoZHaFangAn_desc: "《爆炸方案》全称《爆炸性经济增长方案》，主要是应对巴黎股市崩溃和法郎贬值的计划，其内容主要是对法郎的投机展开攻势和用政府的力量稳定股市。"
+ 
+ FRA_NongYeGaiGe: "农业改革"
+ FRA_NongYeGaiGe_desc: "我们需要考虑最坏的情况；法兰西彻底崩溃，这个时候，乡村地区大概率倒向我们，但如果出现特殊情况，比如和德国一样的情况，这个时候他们将会倒向共产党，我们需要保证他们的生活，避免这种情况发生"
+ 
  # # #通用国策
  
  ZHengZHiJueCe: "政治决策"

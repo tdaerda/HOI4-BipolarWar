@@ -11,7 +11,7 @@ focus_tree = {
 #第一阶段
 	focus = {
 		id = FRA_GuSHiWenTi #股市问题
-		icon = GFX_goal_unknown
+		icon = GFX_GuSHiWenTi
 		cost = 5.00
 		x = 6
 		y = 0
@@ -19,7 +19,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_DuiTouJiZHuYiZHanKaiGongSHi #对投机主义展开攻势
-		icon = GFX_goal_unknown
+		icon = GFX_DuiTouJiZHuYiZHanKaiGongSHi
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_BaoZHaFangAn #爆炸方案
@@ -33,7 +33,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_BaoZHaFangAn #爆炸方案
-		icon = GFX_goal_unknown
+		icon = GFX_BaoZHaFangAn
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_GuSHiWenTi #股市问题
@@ -44,7 +44,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_NongYeGaiGe #农业改革
-		icon = GFX_goal_unknown
+		icon = GFX_NongYeGaiGe
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_BaoZHaFangAn #爆炸方案
@@ -55,7 +55,7 @@ focus_tree = {
 	}
 	focus = { 
 		id = FRA_ZuZHiFaLangBianZHi #阻止法郎贬值
-		icon = GFX_goal_unknown
+		icon = GFX_ZuZHiFaLangBianZHi
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_GuSHiWenTi #股市问题
@@ -66,7 +66,7 @@ focus_tree = {
 	}
 	focus = {
 		id = FRA_XueJianZHengFuKaiZHi #削减政府开支
-		icon = GFX_goal_unknown
+		icon = GFX_XueJianZHengFuKaiZHi
 		cost = 5.00
 		prerequisite = {
 			focus = FRA_ZuZHiFaLangBianZHi #阻止法郎贬值
